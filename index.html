@@ -3,73 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(주)명장의레시피 | 전처리부터 HMR까지 푸드 테크의 기준</title>
+    <title>(주)명장의레시피 | 옥치민 명장의 토탈 푸드 솔루션</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
     <style>
         :root { 
-            --primary: #0b3d2e; --primary-light: #165c47; --accent: #c5a028; 
-            --gold-light: #f4f1ea; --dark: #1a1a1a; --gray-bg: #f8f9fa;
+            --primary: #1a2a1d; --accent: #b89523; --gold-soft: #f4f1e9;
+            --dark: #0f0f0f; --white: #ffffff; --crimson: #a52a2a; /* 김치용 포인트 컬러 */
         }
-        body { font-family: 'Noto Sans KR', sans-serif; color: #333; line-height: 1.7; }
+        body { font-family: 'Noto Sans KR', sans-serif; color: #333; line-height: 1.8; }
         h1, h2, h3, h4, .serif { font-family: 'Noto Serif KR', serif; }
+
+        /* Navigation */
+        .navbar { padding: 20px 0; background: var(--white); border-bottom: 3px solid var(--accent); }
+        .nav-link { font-weight: 700; margin: 0 15px; color: var(--dark) !important; }
+
+        /* Hero */
+        .hero-v4 { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=1920&q=80');
+            height: 60vh; display: flex; align-items: center; color: var(--white); text-align: center;
+        }
+        .hero-v4 h1 { font-size: 4rem; font-weight: 900; }
+
+        /* Section Title */
+        .sec-header { text-align: center; margin-bottom: 80px; }
+        .sec-header h2 { font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; }
+        .sec-header .divider { width: 100px; height: 5px; background: var(--accent); margin: 0 auto; }
+
+        /* Mega Category Card */
+        .mega-card { background: var(--white); border-radius: 30px; padding: 45px; height: 100%; border: 1px solid #eee; transition: 0.4s; position: relative; overflow: hidden; }
+        .mega-card:hover { border-color: var(--accent); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .mega-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 25px; display: block; }
+        .mega-card h4 { font-weight: 800; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; }
         
-        /* 공통 섹션 스타일 */
-        section { padding: 120px 0; border-bottom: 1px solid #eee; }
-        .section-title { text-align: center; margin-bottom: 80px; }
-        .section-title h2 { font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
-        .section-title .divider { width: 80px; height: 5px; background: var(--accent); margin: 0 auto; }
-        .section-title p { font-size: 1.2rem; color: #666; margin-top: 20px; }
+        /* Tag System */
+        .item-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .item-tags span { background: #f8f9fa; padding: 4px 14px; border-radius: 50px; font-size: 0.85rem; color: #555; border: 1px solid #dee2e6; transition: 0.2s; }
+        .item-tags span:hover { background: var(--primary); color: white; border-color: var(--primary); }
 
-        /* 네비게이션 커스텀 */
-        .navbar { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(10px); padding: 20px 0; }
-        .nav-link { font-weight: 700; color: var(--dark) !important; margin: 0 15px; font-size: 1.05rem; }
-        .nav-link:hover { color: var(--accent) !important; }
+        /* Tradition Soup 100 & Kimchi 50 */
+        .archive-section { background: var(--primary); color: white; padding: 120px 0; }
+        .archive-box { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 40px; margin-bottom: 30px; }
+        .archive-box h5 { color: var(--accent); font-weight: 700; margin-bottom: 20px; border-left: 4px solid var(--accent); padding-left: 15px; }
+        .archive-list { columns: 2; -webkit-columns: 2; list-style: none; padding: 0; font-size: 0.9rem; }
+        .archive-list li { margin-bottom: 8px; opacity: 0.8; }
+        .archive-list li:hover { opacity: 1; color: var(--accent); cursor: default; }
 
-        /* 1. 회사소개 섹션 */
-        #about { background: var(--gold-light); }
-        .about-box { background: white; padding: 60px; border-radius: 30px; shadow: 0 20px 50px rgba(0,0,0,0.05); }
-        .vision-card { text-align: center; padding: 30px; border-right: 1px solid #eee; }
-
-        /* 2. 명장소개 섹션 */
-        #master { background: white; }
-        .master-profile { position: relative; }
-        .master-img { border-radius: 20px; box-shadow: 20px 20px 0 var(--primary); }
-        .master-exp { list-style: none; padding: 0; }
-        .master-exp li { margin-bottom: 15px; padding-left: 25px; position: relative; }
-        .master-exp li::before { content: '◈'; position: absolute; left: 0; color: var(--accent); }
-
-        /* 3. 야채 전처리 섹션 (압도적 리스트) */
-        #veg-prep { background: var(--gray-bg); }
-        .prep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .prep-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid #ddd; transition: 0.3s; }
-        .prep-card:hover { border-color: var(--accent); transform: translateY(-10px); }
-        .prep-card h4 { color: var(--primary); font-weight: 700; margin-bottom: 20px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
-        .prep-list { font-size: 0.9rem; color: #555; }
-        .prep-list b { color: #000; }
-
-        /* 4. 육류/수산 섹션 */
-        #protein { background: white; }
-        .protein-item { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .protein-content { padding: 30px; }
-
-        /* 5. 밀키트/HMR 섹션 */
-        #hmr { background: var(--primary); color: white; }
-        .hmr-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 30px; height: 100%; }
-        .hmr-card h4 { color: var(--accent); font-weight: 700; }
-
-        /* 테이블 보강 */
-        .spec-table { width: 100%; margin-top: 20px; background: white; border-radius: 10px; overflow: hidden; }
-        .spec-table th { background: #eee; padding: 15px; font-size: 0.85rem; }
-        .spec-table td { padding: 15px; border-top: 1px solid #eee; font-size: 0.85rem; }
-
-        /* 버튼 */
-        .btn-main { background: var(--accent); color: white; padding: 15px 40px; border-radius: 50px; font-weight: 700; border: none; transition: 0.3s; }
-        .btn-main:hover { background: var(--primary); transform: scale(1.05); }
-
-        footer { background: var(--dark); color: #888; padding: 80px 0; }
+        footer { background: #111; color: #888; padding: 100px 0; border-top: 5px solid var(--accent); }
     </style>
 </head>
 <body>
@@ -77,72 +59,165 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand serif" href="#">(주)<b>명장의레시피</b></a>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">회사소개</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#master">명장소개</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#veg-prep">야채전처리</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#protein">육류/수산가공</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#hmr">밀키트/HMR</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">문의하기</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">옥치민 명장</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mega-menu">8대 제조분야</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#soup-kimchi">전통탕/김치백과</a></li>
+                    <li class="nav-item"><a class="nav-link text-accent" href="#contact">협업제안</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <span class="text-muted fw-bold">SINCE 2006</span>
-                <h2>Company Introduction</h2>
+    <header class="hero-v4">
+        <div class="container text-center">
+            <h1 class="serif mb-4">"대한민국의 모든 식재료,<br>옥치민 명장이 표준이 됩니다"</h1>
+            <p class="fs-4 fw-light opacity-75">프랜차이즈, 급식, 온라인 유통을 위한<br>압도적 스케일의 제조 인프라 솔루션</p>
+        </div>
+    </header>
+
+    <section id="mega-menu" class="section-padding py-5">
+        <div class="container py-5">
+            <div class="sec-header">
+                <h2 class="serif">8 Major Manufacturing Sectors</h2>
                 <div class="divider"></div>
-                <p>위생 공학 기반의 독보적인 제조 인프라를 구축합니다.</p>
+                <p class="mt-4 fs-5">옥치민 명장의 기술력이 투여된 8대 핵심 카테고리 리스트입니다.</p>
             </div>
-            
-            <div class="about-box">
-                <div class="row text-center g-0">
-                    <div class="col-md-4 vision-card">
-                        <i class="fas fa-microscope fa-3x mb-4 text-success"></i>
-                        <h4 class="fw-bold">위생 공학 기술</h4>
-                        <p class="small text-muted">20년 경력의 환경 기술 노하우로<br>세균 제로(Zero) 공정을 실현합니다.</p>
-                    </div>
-                    <div class="col-md-4 vision-card">
-                        <i class="fas fa-hand-holding-heart fa-3x mb-4 text-success"></i>
-                        <h4 class="fw-bold">명장의 감각</h4>
-                        <p class="small text-muted">한식 명장의 정교한 레시피로<br>대량 생산에서도 집밥의 맛을 냅니다.</p>
-                    </div>
-                    <div class="col-md-4 vision-card" style="border:none;">
-                        <i class="fas fa-chart-line fa-3x mb-4 text-success"></i>
-                        <h4 class="fw-bold">파트너 비즈니스</h4>
-                        <p class="small text-muted">프랜차이즈 본사 인건비 절감을 위한<br>최적의 아웃소싱 파트너가 됩니다.</p>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="mega-card">
+                        <i class="fas fa-mortar-pestle"></i>
+                        <h4>01. 명장 김치/절임류</h4>
+                        <p class="small text-muted mb-4">국내산 원물과 옥치민 명장의 비법 양념 배합.</p>
+                        <div class="item-tags">
+                            <span>포기김치(계절별 최적화)</span> <span>맛김치(식당용)</span> <span>깍두기/석박지</span> 
+                            <span>총각김치/열무김치</span> <span>나박김치/동치미</span> <span>백김치</span>
+                            <span>겉절이(당일제조/배송)</span> <span>갓김치/파김치</span> <span>오이소박이</span>
+                            <span>명이나물/깻잎절임</span> <span>단무지/피클/쌈무</span> <span>장아찌(고추/마늘/양파)</span>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-5 text-center">
-                    <p class="lead serif">"우리는 단순한 식품 공장이 아닙니다. <br> <b>(주)명장의레시피</b>는 고객사의 아이디어를 기술로 빚어내는 <b>푸드 테크 크리에이터</b>입니다."</p>
+
+                <div class="col-lg-4">
+                    <div class="mega-card">
+                        <i class="fas fa-utensils"></i>
+                        <h4>02. 프리미엄 반찬류</h4>
+                        <p class="small text-muted mb-4">매일 아침 주방의 고민을 해결하는 반찬 라인업.</p>
+                        <div class="item-tags">
+                            <span>멸치볶음(지리/중멸/대멸)</span> <span>진미채/어묵볶음</span> <span>메추리알/장조림</span>
+                            <span>콩자반/땅콩조림</span> <span>우엉/연근조림</span> <span>무말랭이무침</span>
+                            <span>산나물무침(고사리/도라지/시금치)</span> <span>취나물/곤드레나물</span> <span>오징어/낙지/젓갈류</span>
+                            <span>잡채(대량조리용)</span> <span>계란말이(규격컷)</span> <span>모둠전(명절/제사용)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="mega-card">
+                        <i class="fas fa-leaf"></i>
+                        <h4>03. 야채/근채 전처리</h4>
+                        <p class="small text-muted mb-4">세척, 탈피, 1mm 단위 정밀 규격 컷팅.</p>
+                        <div class="item-tags">
+                            <span>양파(탈피/슬라이스/다짐)</span> <span>깐마늘(국산/수입)</span> <span>대파(어긋/송송)</span>
+                            <span>감자/당근(박피/큐브)</span> <span>무(채/깍둑)</span> <span>양배추(샐러드용)</span>
+                            <span>양상추(세척손질)</span> <span>버섯류(슬라이스/찢기)</span> <span>모둠채소믹스</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="mega-card">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <h4>04. 육류/축산 가공</h4>
+                        <p class="small text-muted mb-4">염지, 연육, 부위별 커스터마이징 슬라이싱.</p>
+                        <div class="item-tags">
+                            <span>소불고기(0.8mm)</span> <span>돈육제육(전지/후지)</span> <span>칼집삼겹살</span>
+                            <span>돈까스용연육등심</span> <span>닭갈비정육(2x2cm)</span> <span>스테이크마리네이드</span>
+                            <span>닭볶음탕토막</span> <span>막창/곱창세척초벌</span> <span>벌집껍데기</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="mega-card">
+                        <i class="fas fa-fish"></i>
+                        <h4>05. 수산/해산물 가공</h4>
+                        <p class="small text-muted mb-4">비린내 제거 및 정밀 필렛 공정.</p>
+                        <div class="item-tags">
+                            <span>순살고등어/삼치필렛</span> <span>연어슬라이스</span> <span>오징어칼집/링</span>
+                            <span>쭈꾸미/낙지손질</span> <span>탈피새우</span> <span>해감바지락/동죽</span>
+                            <span>절단꽃게(세척)</span> <span>코다리손질</span> <span>자숙해산물믹스</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="mega-card">
+                        <i class="fas fa-bowl-food"></i>
+                        <h4>06. 전통탕류/찌개 원팩</h4>
+                        <p class="small text-muted mb-4">전국 맛집 레시피를 완벽하게 재현한 100선.</p>
+                        <div class="item-tags">
+                            <span>명품갈비탕</span> <span>사골설렁탕</span> <span>진육개장</span> 
+                            <span>뼈해장국</span> <span>돼지국밥</span> <span>부대찌개</span>
+                            <span>삼계탕</span> <span>닭볶음탕</span> <span>해물탕</span> <span>알탕</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="mega-card">
+                        <i class="fas fa-flask"></i>
+                        <h4>07. 시그니처 소스 R&D</h4>
+                        <p class="small text-muted mb-4">맛의 균일화를 위한 최첨단 배합 시스템.</p>
+                        <div class="item-tags">
+                            <span>만능볶음양념</span> <span>간장베이스소스</span> <span>비법다대기</span>
+                            <span>샐러드드레싱(15종)</span> <span>마라/퓨전소스</span> <span>냉면육수/비빔장</span>
+                            <span>샤브샤브쯔유</span> <span>파스타소스</span> <span>바비큐시즈닝</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="mega-card">
+                        <i class="fas fa-pizza-slice"></i>
+                        <h4>08. 면류/분식/밀키트</h4>
+                        <p class="small text-muted mb-4">완성도 높은 사이드 및 완제품 세트 공정.</p>
+                        <div class="item-tags">
+                            <span>냉동/생면사리</span> <span>밀떡/쌀떡</span> <span>냉동만두/튀김</span>
+                            <span>함박스테이크패티</span> <span>볶음밥용미립채소</span> <span>캠핑원팩밀키트</span>
+                            <span>실버푸드(연화식)</span> <span>반려동물화식</span> <span>비건간편식</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="master">
+    <section id="soup-kimchi" class="archive-section">
+        <div class="container text-center mb-5">
+            <h2 class="serif text-accent">Master's Recipe Archive</h2>
+            <p class="fs-4 opacity-75">옥치민 명장의 기술이 집약된 대한민국 대표 메뉴 데이터베이스</p>
+        </div>
+        
         <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-5">
-                    <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=800&q=80" class="img-fluid master-img" alt="Master Chef">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="archive-box">
+                        <h5>명장의 김치 50선 (Kimchi Selection)</h5>
+                        <ul class="archive-list">
+                            <li>남도풍 포기김치</li> <li>서울식 깔끔김치</li> <li>숙성 묵은지</li> <li>시원한 맛김치</li> <li>보쌈 겉절이</li> <li>해물김치</li> <li>동치미/나박김치</li> <li>알타리 총각김치</li> <li>여수 돌산갓김치</li> <li>톡 쏘는 파김치</li> <li>오이소박이/부추김치</li> <li>아삭 열무김치</li> <li>제주 무 석박지</li> <li>설렁탕 깍두기</li> <li>비건 소소김치</li> <li>홍갓 물김치</li> <li>우엉김치</li> <li>들깻잎 김치</li> <li>고추소박이</li> <li>민들레김치</li> <li>고구마순김치</li> <li>전통 백김치</li> <li>갓물김치</li> <li>양배추김치</li>
+                            <li>... 외 50여 종 맞춤 제조</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="ps-lg-5">
-                        <h4 class="text-accent fw-bold mb-2">Master R&D Director</h4>
-                        <h2 class="serif mb-4" style="font-size: 3.5rem;">맛의 가치를 만드는 <br> <b>명장의 손길</b></h2>
-                        <div class="divider ms-0 mb-4" style="width:100px;"></div>
-                        <p class="fs-5 mb-5">"단순한 슬라이스 하나에도 결이 있습니다. 식재료의 세포 손상을 최소화하는 절단 기술과 명장의 양념 배합 기술이 만날 때, 진정한 상업적 가치가 탄생합니다."</p>
-                        
-                        <ul class="master-exp fs-6">
-                            <li><b>식품 위생 및 환경 공학 전문가</b> (20년 경력)</li>
-                            <li><b>전국 프랜차이즈 100여 개 레시피 컨설팅</b> 수행</li>
-                            <li><b>HACCP 인증 제조 시스템</b> 설계 및 운영 마스터</li>
-                            <li><b>방송 출연 및 식품 기술 자문</b> (다수 매체)</li>
-                            <li><b>현 (주)명장의레시피 기술 총괄 이사</b></li>
+                <div class="col-lg-6">
+                    <div class="archive-box">
+                        <h5>명장의 전통탕 100선 (Soup Selection)</h5>
+                        <ul class="archive-list">
+                            <li>한우 사골곰탕</li> <li>명품 왕갈비탕</li> <li>전통 육개장</li> <li>사골 우거지국</li> <li>부산식 돼지국밥</li> <li>순대국밥 육수</li> <li>우거지 뼈해장국</li> <li>남도식 추어탕</li> <li>얼큰 내장탕</li> <li>궁중 삼계탕</li> <li>상황버섯 백숙</li> <li>매콤 닭볶음탕</li> <li>황태 북어국</li> <li>얼큰 소고기뭇국</li> <li>꽃게 해물탕</li> <li>명란 알곤이탕</li> <li>시원한 대구지리</li> <li>동태 매운탕</li> <li>바지락 미역국</li> <li>참치/돼지 김치찌개</li> <li>차돌 된장찌개</li> <li>고추장 짜글이</li> <li>전통 부대찌개</li> <li>밀푀유나베 육수</li>
+                            <li>... 외 100여 종 맞춤 제조</li>
                         </ul>
                     </div>
                 </div>
@@ -150,225 +225,57 @@
         </div>
     </section>
 
-    <section id="veg-prep">
-        <div class="container">
-            <div class="section-title">
-                <h2>Vegetable Pre-processing</h2>
-                <div class="divider"></div>
-                <p>세척부터 정밀 절단까지, 매장에서 바로 사용할 수 있는 상태로 공급합니다.</p>
-            </div>
-
-            <div class="prep-grid">
-                <div class="prep-card">
-                    <h4>양념/향신 채소</h4>
-                    <ul class="prep-list list-unstyled">
-                        <li><b>양파:</b> 탈피/다짐(입자조절)/슬라이스/사각절단</li>
-                        <li><b>마늘:</b> 깐마늘/슬라이스/다짐(통조림용 대량가공)</li>
-                        <li><b>대파·쪽파:</b> 뿌리제거/세척/어긋썰기/송송썰기</li>
-                        <li><b>생강:</b> 박피/세척/다짐/액상착즙</li>
-                        <li><b>고추(청/홍):</b> 꼭지제거/세척/링썰기/다짐</li>
-                    </ul>
-                </div>
-
-                <div class="prep-card">
-                    <h4>근채류/뿌리 채소</h4>
-                    <ul class="prep-list list-unstyled">
-                        <li><b>감자·고구마:</b> 탈피/큐브(카레용)/슬라이스/스틱</li>
-                        <li><b>당근:</b> 박피/채썰기/반달/샤토(둥글리기)</li>
-                        <li><b>무:</b> 박피/채썰기(김치용)/깍둑썰기/조림용</li>
-                        <li><b>연근·우엉:</b> 박피/슬라이스/식초수처리(변색방지)</li>
-                        <li><b>비트·콜라비:</b> 특수절단/착즙용 손질</li>
-                    </ul>
-                </div>
-
-                <div class="prep-card">
-                    <h4>엽채류/샐러드 채소</h4>
-                    <ul class="prep-list list-unstyled">
-                        <li><b>양배추:</b> 채썰기(샐러드)/코울슬로용(미세다짐)/사각</li>
-                        <li><b>양상추·로메인:</b> 3단계 버블세척/한입 크기 손질</li>
-                        <li><b>부추·미나리:</b> 흙제거 세척/일정 간격 정밀 절단</li>
-                        <li><b>시금치·청경채:</b> 뿌리 다듬기/세척/데침(선택)</li>
-                        <li><b>모둠 믹스:</b> 고객사 요청비율 샐러드 믹스 패킹</li>
-                    </ul>
-                </div>
-
-                <div class="prep-card">
-                    <h4>증숙/나물/버섯</h4>
-                    <ul class="prep-list list-unstyled">
-                        <li><b>고사리·시래기:</b> 고온 증숙/불림 가공/진공포장</li>
-                        <li><b>곤드레·취나물:</b> 전처리 및 양념 전단계 손질</li>
-                        <li><b>버섯류:</b> 표고(슬라이스)/느타리(찢기)/양송이(컷)</li>
-                        <li><b>브로콜리·컬리플라워:</b> 세척/줄기제거/한입크기</li>
-                        <li><b>단호박:</b> 씨제거/슬라이스/퓨레용 손질</li>
-                    </ul>
-                </div>
-
-                <div class="prep-card">
-                    <h4>Ready-to-Eat 과일</h4>
-                    <ul class="prep-list list-unstyled">
-                        <li><b>사과·배:</b> 껍질제거/슬라이스/갈변방지 처리</li>
-                        <li><b>파인애플:</b> 심제거/컷/슬라이스</li>
-                        <li><b>수박·멜론:</b> 껍질제거/과육 큐브/반컷 패킹</li>
-                        <li><b>자몽·오렌지:</b> 박피/과육 분리(세그먼트)</li>
-                        <li><b>포도·방울토마토:</b> 꼭지제거/세척/소분</li>
-                    </ul>
-                </div>
-
-                <div class="prep-card" style="background:var(--gold-light);">
-                    <h4>Custom Processing</h4>
-                    <p class="small">리스트에 없는 어떤 품목도 귀사가 원하는 **가공 규격(mm)**과 **포장 방식**에 맞춰 커스터마이징 해드립니다.</p>
-                    <button class="btn btn-sm btn-dark w-100">맞춤 규격 상담</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="protein">
-        <div class="container">
-            <div class="section-title">
-                <h2>Protein Solution</h2>
-                <div class="divider"></div>
-                <p>원료육의 수율을 높이고, 최적의 맛을 내는 정밀 가공 시스템입니다.</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="protein-item">
-                        <div class="protein-content">
-                            <h4 class="fw-bold mb-3"><i class="fas fa-drumstick-bite text-danger me-2"></i> 육류 가공 (Beef/Pork/Chicken)</h4>
-                            <table class="spec-table">
-                                <tr><th>분류</th><th>상세 제품군 및 가공 예시</th></tr>
-                                <tr><td><b>소고기</b></td><td>스테이크 시즈닝, 불고기 슬라이스, 샤브샤브용 초슬라이스, 국거리 큐브</td></tr>
-                                <tr><td><b>돼지고기</b></td><td>삼겹살/오겹살 칼집, 돈까스 연육 등심, 제육볶음용 전지 슬라이스</td></tr>
-                                <li><b>닭고기</b></td><td>닭다리살 정육 컷, 닭가슴살 수비드/훈제, 안심 힘줄 제거, 닭볶음탕 토막</td></tr>
-                                <li><b>특수육</b></td><td>양념 곱창·막창 초벌, 껍데기 세척/염지, 양고기 큐브</td></tr>
-                            </table>
-                        </div>
+    <section id="about" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-md-5">
+                    <div class="p-4 bg-white rounded-4 shadow-sm">
+                        <h4 class="serif mb-4"><i class="fas fa-building text-accent me-2"></i> (주)명장의레시피</h4>
+                        <p class="small text-muted mb-2"><b>기술이사:</b> 옥치민 명장</p>
+                        <p class="small text-muted mb-2"><b>연구총괄:</b> 문종대 전문가 (20년 위생공학)</p>
+                        <p class="small text-muted mb-4"><b>본사위치:</b> 경기도 하남시 미사강변로 (HACCP 인증 제조센터)</p>
+                        <hr>
+                        <p class="small text-dark fw-bold">"우리는 단순히 식품을 파는 것이 아닙니다. 프랜차이즈의 고민인 '맛의 균일화'와 '인건비 절감'을 파는 기술 기업입니다."</p>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="protein-item">
-                        <div class="protein-content">
-                            <h4 class="fw-bold mb-3"><i class="fas fa-fish text-info me-2"></i> 수산 가공 (Seafood)</h4>
-                            <table class="spec-table">
-                                <tr><th>분류</th><th>상세 제품군 및 가공 예시</th></tr>
-                                <tr><td><b>생선류</b></td><td>고등어·삼치 필렛(가시제거), 연어 스테이크/슬라이스, 반건조 생선</td></tr>
-                                <tr><td><b>두족류</b></td><td>오징어 칼집/링/슬라이스, 문어 자숙(Steamed), 낙지·쭈꾸미 내장제거</td></tr>
-                                <tr><td><b>갑각류</b></td><td>탈피새우(노바시), 절단 꽃게 세척, 전복 해감/진공</td></tr>
-                                <tr><td><b>조개류</b></td><td>바지락·동죽 해감, 가리비 정밀 손질</td></tr>
-                            </table>
-                        </div>
+                <div class="col-md-7">
+                    <h2 class="serif mb-4">Total Kitchen Solution</h2>
+                    <p class="fs-5">옥치민 명장의 20년 레시피 데이터와 문종대 이사의 위생 공학 기술이 만나 **대한민국에서 가장 안전하고 맛있는** 식자재 제조 시스템을 구축했습니다.</p>
+                    <div class="mt-4">
+                        <a href="mailto:master@mjrecipe.co.kr" class="btn btn-dark btn-lg px-5 rounded-pill me-3">제휴 문의</a>
+                        <a href="#contact" class="btn btn-outline-dark btn-lg px-5 rounded-pill">견적 신청</a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="hmr">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="text-white">Meal-kit & HMR Total Solution</h2>
-                <div class="divider"></div>
-                <p class="text-white opacity-75">아이디어만으로 완제품 브랜드 런칭이 가능한 올인원 서비스입니다.</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="hmr-card">
-                        <h4>01. R&D & Sourcing</h4>
-                        <p class="small mt-3">명장 R&D팀이 고객사의 비법을 레시피화하거나, 시장성 높은 새로운 맛을 제안합니다. 최적의 원물을 산지 직송으로 소싱하여 원가를 절감합니다.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="hmr-card">
-                        <h4>02. Multi-Packaging</h4>
-                        <p class="small mt-3">신선 야채, 염지육, 특제 소스 등을 한 팩에 담는 정밀 합포장 기술. 유통기한 극대화를 위한 MAP(변조가스포장) 및 진공 기술을 적용합니다.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="hmr-card">
-                        <h4>03. Logistic & Fulfillment</h4>
-                        <p class="small mt-3">생산 즉시 저온 창고 입고 및 전국 콜드체인 배송. 이커머스 판매를 위한 개별 택배 발송 대행 서비스까지 원스톱으로 지원합니다.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-5 p-5 rounded-4 bg-white text-dark shadow-lg">
-                <h4 class="fw-bold mb-4 text-center">주요 완제품 제조 리스트 (Best Sellers)</h4>
-                <div class="row text-center">
-                    <div class="col-md-2 col-6 mb-3"><b>밀푀유나베</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>감바스 알 아히요</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>안동찜닭</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>부대찌개</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>마라탕</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>함박스테이크</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>샐러드도시락</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>연화식(실버)</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>펫푸드(화식)</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>캠핑 원팩</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>전통탕류</b></div>
-                    <div class="col-md-2 col-6 mb-3"><b>퓨전파스타</b></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="bg-light">
-        <div class="container text-center">
-            <h2 class="serif mb-4">"명장의 기술과 위생 공학이 당신의 사업을 완성합니다."</h2>
-            <p class="mb-5 fs-5">단순 전처리 상담부터 OEM/ODM 대량 생산까지, <br> 지금 바로 (주)명장의레시피 전문가와 상의하십시오.</p>
-            
-            <div class="row justify-content-center">
-                <div class="col-md-8 bg-white p-5 rounded-4 shadow">
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6 text-start">
-                                <label class="form-label fw-bold">회사명/성함</label>
-                                <input type="text" class="form-control" placeholder="예: (주)명장식품 홍길동">
-                            </div>
-                            <div class="col-md-6 text-start">
-                                <label class="form-label fw-bold">연락처</label>
-                                <input type="text" class="form-control" placeholder="010-0000-0000">
-                            </div>
-                            <div class="col-md-12 text-start">
-                                <label class="form-label fw-bold">문의 유형</label>
-                                <select class="form-select">
-                                    <option>단순 야채/육류 전처리 위탁</option>
-                                    <option>프랜차이즈 전용 소스/패키지 개발</option>
-                                    <option>신규 브랜드 HMR 완제품 제조(OEM/ODM)</option>
-                                    <option>기타 식자재 상담</option>
-                                </select>
-                            </div>
-                            <div class="col-md-12 text-start">
-                                <label class="form-label fw-bold">문의 내용</label>
-                                <textarea class="form-control" rows="5" placeholder="만들고 싶은 품목, 가공 방식, 예상 물량 등을 자유롭게 적어주세요."></textarea>
-                            </div>
-                        </div>
-                        <button class="btn-main mt-4 w-100">명장에게 상담 신청하기</button>
-                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="serif text-white mb-4">(주)<b>명장의레시피</b></h3>
-                    <p>대표이사 : 옥치민 | 기술총괄이사 : 문종대</p>
-                    <p>사업장 : 경기도 하남시 미사강변로 (예정)</p>
-                    <p>사업자등록번호 : 준비중 | TEL : 010-XXXX-XXXX</p>
+        <div class="container text-center">
+            <h3 class="serif text-white mb-5">(주)<b>명장의레시피</b></h3>
+            <div class="row text-start border-bottom border-secondary pb-5 mb-5">
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-white fw-bold mb-3">PRODUCT SECTORS</h6>
+                    <ul class="list-unstyled small">
+                        <li>야채/육류/수산 전처리</li>
+                        <li>명장 김치/반찬류</li>
+                        <li>전통탕류/소스 R&D</li>
+                    </ul>
                 </div>
-                <div class="col-md-6 text-md-end mt-4 mt-md-0">
-                    <p>© 2026 Master's Recipe. All rights reserved.</p>
-                    <div class="mt-3">
-                        <i class="fab fa-instagram fa-2x me-3"></i>
-                        <i class="fab fa-youtube fa-2x me-3"></i>
-                        <i class="fas fa-blog fa-2x"></i>
-                    </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-white fw-bold mb-3">PARTNERSHIP</h6>
+                    <ul class="list-unstyled small">
+                        <li>프랜차이즈 본사 OEM/ODM</li>
+                        <li>대형 급식/병원/관공서 납품</li>
+                        <li>밀키트 온라인 판매 대행</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-white fw-bold mb-3">CONTACT US</h6>
+                    <p class="small">TEL : 010-XXXX-XXXX<br>E-MAIL : master@mjrecipe.co.kr</p>
                 </div>
             </div>
+            <p class="small opacity-50">© 2026 Master's Recipe All rights reserved. | 대표이사 옥치민 | 기술이사 문종대</p>
         </div>
     </footer>
 
