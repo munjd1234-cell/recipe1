@@ -3,46 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(주)명장의레시피 | 상상하는 모든 레시피를 현실로</title>
+    <title>(주)명장의레시피 | 단순 전처리부터 완제품 HMR까지 푸드 토탈 솔루션</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        :root { --primary-color: #0b3d2e; --accent-color: #c5a028; --light-bg: #fdfdfd; }
-        body { font-family: 'Noto Sans KR', sans-serif; color: #333; }
-        h1, h2, h3, .brand-font { font-family: 'Noto Serif KR', serif; }
-
-        .hero { 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; height: 70vh; display: flex; align-items: center; color: white;
+        :root { 
+            --primary-color: #0b3d2e; 
+            --accent-color: #c5a028; 
+            --bg-light: #f8f9fa; 
+            --text-dark: #222;
+            --border-color: #dee2e6;
         }
-        .hero h1 { font-size: 3.5rem; line-height: 1.3; }
-        .hero span { color: var(--accent-color); border-bottom: 4px solid var(--accent-color); }
+        body { font-family: 'Noto Sans KR', sans-serif; color: var(--text-dark); line-height: 1.8; overflow-x: hidden; }
+        h1, h2, h3, h4, .brand-font { font-family: 'Noto Serif KR', serif; }
 
-        .anything-box { background: white; border-radius: 30px; margin-top: -80px; box-shadow: 0 40px 80px rgba(0,0,0,0.15); padding: 60px; position: relative; z-index: 10; }
-        .anything-title { color: var(--primary-color); font-weight: 700; margin-bottom: 40px; }
+        /* Navigation */
+        .navbar { padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .navbar-brand b { color: var(--primary-color); }
 
-        .sol-card { border: 1px solid #eee; border-radius: 20px; transition: 0.4s; overflow: hidden; height: 100%; display: flex; flex-direction: column; background: #fff; }
-        .sol-card:hover { border-color: var(--accent-color); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .sol-card .card-header { background: var(--primary-color); color: white; padding: 20px; text-align: center; }
-        .sol-card .card-body { padding: 25px; flex-grow: 1; }
+        /* Hero */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center; height: 60vh; display: flex; align-items: center; color: white;
+        }
+        .hero h1 { font-size: 3.8rem; font-weight: 700; margin-bottom: 20px; }
+        .hero p { font-size: 1.4rem; opacity: 0.9; font-weight: 300; }
 
-        /* 공정 섹션 */
-        .process-box { background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid var(--accent-color); }
-        .process-step { font-size: 0.8rem; margin-bottom: 3px; display: block; color: #666; }
-        .process-step b { color: var(--primary-color); }
+        /* 핵심 구분 섹션: 단순 가공 vs 복합 제조 */
+        .division-info { margin-top: -100px; position: relative; z-index: 100; }
+        .info-card { 
+            background: white; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.12); 
+            padding: 50px; border-top: 8px solid var(--accent-color);
+        }
+        
+        /* 섹션 타이틀 */
+        .sec-header { text-align: center; margin-bottom: 80px; }
+        .sec-header h2 { font-size: 2.8rem; color: var(--primary-color); margin-bottom: 20px; }
+        .sec-header .bar { width: 60px; height: 4px; background: var(--accent-color); margin: 0 auto; }
 
-        /* 품목 리스트 대폭 강화 */
-        .product-group { margin-top: 15px; }
-        .product-group-title { font-size: 0.9rem; font-weight: 700; color: var(--primary-color); margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .tag-container { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 15px; }
-        .tag { display: inline-block; background: #f1f3f5; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; color: #495057; border: 1px solid #e9ecef; }
-        .tag:hover { background: var(--accent-color); color: white; border-color: var(--accent-color); }
+        /* 카테고리 뱃지 */
+        .badge-category { 
+            display: inline-block; padding: 5px 15px; background: var(--primary-color); 
+            color: white; border-radius: 4px; font-size: 0.85rem; margin-bottom: 15px; 
+        }
 
-        .cta-section { background: var(--primary-color); color: white; padding: 80px 0; text-align: center; }
-        .btn-custom { background: var(--accent-color); color: white; padding: 18px 50px; border-radius: 50px; font-weight: 700; font-size: 1.2rem; text-decoration: none; display: inline-block; transition: 0.3s; }
-        footer { background: #111; color: #888; padding: 60px 0; }
+        /* 상세 리스트 테이블 */
+        .product-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .product-table th { background: #f1f3f5; padding: 12px; border: 1px solid var(--border-color); font-size: 0.9rem; }
+        .product-table td { padding: 12px; border: 1px solid var(--border-color); font-size: 0.85rem; vertical-align: top; }
+        .method-label { font-weight: 700; color: var(--primary-color); display: block; margin-bottom: 5px; }
+
+        /* 전처리 전문 섹션 스타일 */
+        .prep-section { background: white; padding: 100px 0; }
+        .prep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .prep-item { border: 1px solid #eee; padding: 30px; border-radius: 15px; transition: 0.3s; }
+        .prep-item:hover { border-color: var(--accent-color); background: #fffdf7; }
+        .prep-item h4 { border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; color: var(--primary-color); }
+
+        /* 태그 클라우드 */
+        .tag-box { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag-box span { background: #eee; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; color: #555; }
+        .tag-box span:hover { background: var(--primary-color); color: white; }
+
+        /* 공정 단계 시각화 */
+        .process-visual { display: flex; justify-content: space-between; margin: 50px 0; text-align: center; }
+        .p-step { flex: 1; position: relative; }
+        .p-step i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; }
+        .p-step h5 { font-weight: 700; font-size: 1.1rem; }
+
+        /* CTA */
+        .cta-box { background: var(--primary-color); color: white; padding: 100px 0; text-align: center; }
+        .btn-gold { background: var(--accent-color); color: white; padding: 20px 60px; border-radius: 50px; font-weight: 700; font-size: 1.3rem; text-decoration: none; transition: 0.3s; }
+        .btn-gold:hover { transform: scale(1.05); color: white; }
+
+        footer { background: #1a1a1a; color: #999; padding: 80px 0; border-top: 5px solid var(--accent-color); }
     </style>
 </head>
 <body>
@@ -50,10 +86,15 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand brand-font" href="#">(주)<b>명장의레시피</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#solution">제조 솔루션</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">문의하기</a></li>
+                <ul class="navbar-nav ms-auto fw-bold">
+                    <li class="nav-item"><a class="nav-link px-3" href="#prep-only">단순 전처리 솔루션</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#hmr-total">복합 제조 솔루션</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#process">제조 시스템</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-danger" href="#contact">견적/샘플 신청</a></li>
                 </ul>
             </div>
         </div>
@@ -61,124 +102,182 @@
 
     <header class="hero">
         <div class="container text-center">
-            <h1 class="brand-font">원하시는 모든 식자재,<br><span>명장의 공정으로</span> 완성합니다.</h1>
-            <p class="fs-4 mt-4 opacity-75">국내 최대 규모 전처리 품목 보유<br>레시피 최적화부터 대량 생산 납품까지</p>
+            <h1 class="brand-font">대파 한 단의 슬라이스부터<br>복합 밀키트의 완성까지</h1>
+            <p>단순 가공을 원하십니까, 완벽한 제품을 원하십니까?<br>귀사가 필요로 하는 '그 단계'까지만 명확하게 수행합니다.</p>
         </div>
     </header>
 
-    <section class="container mb-5" id="solution">
-        <div class="anything-box">
-            <div class="text-center mb-5">
-                <h2 class="anything-title brand-font">Portfolio & Process</h2>
-                <p class="text-muted">전처리 야채부터 복합 밀키트까지, (주)명장의레시피가 다루는 방대한 제품군을 확인하세요.</p>
+    <section class="container division-info">
+        <div class="info-card">
+            <div class="row g-5">
+                <div class="col-lg-6 border-end">
+                    <h3 class="fw-bold mb-4 text-primary"><i class="fas fa-knife"></i> TYPE A. 단순 전처리 (Raw Processing)</h3>
+                    <p class="text-muted mb-4">"식재료 손질 시간이 부족한 프랜차이즈 및 급식소용"</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 원물 세척 및 불순물 제거</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 규격별 절단 (슬라이스, 다이스, 채썰기 등)</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 대용량 벌크 포장 및 매일 배송</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 원가 절감을 위한 산지 직송 시스템</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-4 text-danger"><i class="fas fa-box"></i> TYPE B. 복합 제조 (HMR/OEM)</h3>
+                    <p class="text-muted mb-4">"자사 브랜드 제품 런칭 및 온라인 판매용"</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i> 명장 R&D팀의 전용 소스 개발</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i> 10종 이상의 재료 합포장(Kit)</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i> 유통기한 확보를 위한 충진 및 멸균</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i> 패키지 디자인 및 물류 대행</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prep-only" class="prep-section">
+        <div class="container">
+            <div class="sec-header">
+                <span class="badge-category">Simple Processing</span>
+                <h2>단순 전처리 품목 리스트</h2>
+                <div class="bar"></div>
+                <p class="mt-4">"원하시는 규격(mm)만 말씀하세요. 당일 작업하여 신선하게 배송합니다."</p>
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="sol-card">
-                        <div class="card-header"><h4>Vegetable & Fruit Custom</h4></div>
-                        <div class="card-body">
-                            <div class="process-box">
-                                <span class="process-step"><b>01. 세척:</b> 버블 고압 세척 & UV 살균</span>
-                                <span class="process-step"><b>02. 가공:</b> 자동 슬라이스/다짐/박피</span>
-                                <span class="process-step"><b>03. 보존:</b> 갈변방지 & 갈변억제 수처리</span>
-                                <span class="process-step"><b>04. 패킹:</b> 소분 진공 & 신선 MAP 포장</span>
-                            </div>
-
-                            <div class="product-group">
-                                <div class="product-group-title">근채류/양념채소</div>
-                                <div class="tag-container">
-                                    <span class="tag">양파(탈피/다짐/슬라이스)</span> <span class="tag">깐마늘(통/슬라이스/다짐)</span>
-                                    <span class="tag">대파(세척/어긋썰기/송송)</span> <span class="tag">쪽파(뿌리제거/컷)</span>
-                                    <span class="tag">감자(탈피/큐브/채)</span> <span class="tag">고구마(박피/스틱)</span>
-                                    <span class="tag">당근(박피/슬라이스/샤토)</span> <span class="tag">무(박피/채/깍두기용)</span>
-                                    <span class="tag">생강(착즙/다짐)</span> <span class="tag">우엉·연근(식초수처)</span>
-                                </div>
-                                <div class="product-group-title">엽채류/샐러드/기타</div>
-                                <div class="tag-container">
-                                    <span class="tag">양배추(채/슬라이스/코울슬로)</span> <span class="tag">양상추(세척/손질)</span>
-                                    <span class="tag">치커리·로메인</span> <span class="tag">시금치(다듬기/데침)</span>
-                                    <span class="tag">고사리·시래기(증숙/불림)</span> <span class="tag">브로콜리(컷/데침)</span>
-                                    <span class="tag">파프리카(씨제거/채)</span> <span class="tag">단호박(슬라이스/다이스)</span>
-                                    <span class="tag">부추(세척/컷)</span> <span class="tag">청경채·비타민</span>
-                                </div>
-                                <div class="product-group-title">과일류(Ready-to-Eat)</div>
-                                <div class="tag-container">
-                                    <span class="tag">사과·배(슬라이스/산화방지)</span> <span class="tag">파인애플(심제거/컷)</span>
-                                    <span class="tag">수박(속살큐브)</span> <span class="tag">멜론(반컷/박피)</span>
-                                    <span class="tag">오렌지·자몽(박피/세그먼트)</span> <span class="tag">방울토마토(꼭지제거)</span>
-                                </div>
-                            </div>
+                <div class="col-12 mb-5">
+                    <div class="prep-item shadow-sm">
+                        <h4 class="brand-font"><i class="fas fa-carrot me-2"></i> 야채·채소류 정밀 가공 (30종 이상)</h4>
+                        <div class="table-responsive">
+                            <table class="product-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:20%">원물 카테고리</th>
+                                        <th style="width:40%">상세 품목</th>
+                                        <th style="width:40%">제공 가공 형태 (맞춤 가능)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><b>기본 양념 채소</b></td>
+                                        <td>양파, 깐마늘, 대파, 쪽파, 생강, 청양고추, 홍고추</td>
+                                        <td>
+                                            <span class="method-label">[슬라이스]</span> 1mm~10mm 정밀 조절<br>
+                                            <span class="method-label">[다짐]</span> 입자 크기별(거칠게/곱게) 미립자 가능<br>
+                                            <span class="method-label">[탈피]</span> 껍질 완벽 제거 후 진공 포장
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>근채류</b></td>
+                                        <td>감자, 고구마, 당근, 무, 연근, 우엉, 비트</td>
+                                        <td>
+                                            <span class="method-label">[큐브/다이스]</span> 볶음밥용 5mm / 카레용 15mm<br>
+                                            <span class="method-label">[채썰기]</span> 김장용 무채 / 우엉채 / 당근채<br>
+                                            <span class="method-label">[샤토/라운드]</span> 찜용 둥글리기 가공
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>엽채류</b></td>
+                                        <td>양배추, 양상추, 적채, 로메인, 치커리, 청경채, 부추</td>
+                                        <td>
+                                            <span class="method-label">[세척절단]</span> 전해수 살균 후 한입 크기 컷팅<br>
+                                            <span class="method-label">[코울슬로]</span> 야채믹스 전용 미세 절단<br>
+                                            <span class="method-label">[벌크]</span> 매장용 5kg/10kg 대용량 패킹
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>특수/건나물</b></td>
+                                        <td>고사리, 시래기, 취나물, 브로콜리, 컬리플라워, 파프리카</td>
+                                        <td>
+                                            <span class="method-label">[증숙/불림]</span> 즉시 조리 가능한 불림 공정<br>
+                                            <span class="method-label">[소분]</span> 1인분 단위 정량 소분 패킹
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="sol-card">
-                        <div class="card-header"><h4>Meat & Protein Solution</h4></div>
-                        <div class="card-body">
-                            <div class="process-box">
-                                <span class="process-step"><b>01. 전처리:</b> 원료육 지방/근막 트리밍</span>
-                                <span class="process-step"><b>02. 연육/염지:</b> 텀블링 & 주입식 염지</span>
-                                <span class="process-step"><b>03. 정밀컷:</b> 메뉴별 균일 규격 슬라이싱</span>
-                                <span class="process-step"><b>04. 위생:</b> 미생물 검사 & 금속 검출기 통과</span>
-                            </div>
-
-                            <div class="product-group">
-                                <div class="product-group-title">육류(소/돼지/닭)</div>
-                                <div class="tag-container">
-                                    <span class="tag">소불고기(양념/생)</span> <span class="tag">소고기국거리(깍둑)</span>
-                                    <span class="tag">스테이크(시즈닝/수비드)</span> <span class="tag">샤브샤브용(초슬라이스)</span>
-                                    <span class="tag">제육볶음용(전지/후지)</span> <span class="tag">돈까스용(연육등심)</span>
-                                    <span class="tag">삼겹살/오겹살(칼집/구이용)</span> <span class="tag">돼지갈비(포뜨기/양념)</span>
-                                    <span class="tag">닭가슴살(훈제/생/슬라이스)</span> <span class="tag">닭다리살(정육/순살)</span>
-                                    <span class="tag">닭볶음탕용(토막)</span> <span class="tag">양념돼지껍데기</span>
-                                    <span class="tag">막창·곱창(세척/초벌)</span> <span class="tag">민스(다짐육/패티)</span>
-                                </div>
-                                <div class="product-group-title">수산/해산물</div>
-                                <div class="tag-container">
-                                    <span class="tag">고등어·삼치(필렛/반건조)</span> <span class="tag">순살연어(회/스테이크)</span>
-                                    <span class="tag">오징어(칼집/슬라이스)</span> <span class="tag">자숙문어(슬라이스)</span>
-                                    <span class="tag">탈피새우(칵테일/노바시)</span> <span class="tag">낙지·쭈꾸미(내장제거)</span>
-                                    <span class="tag">꽃게(절단/세척)</span> <span class="tag">바지락·전복(해감/진공)</span>
-                                </div>
-                            </div>
+                <div class="col-lg-6">
+                    <div class="prep-item shadow-sm h-100">
+                        <h4 class="brand-font text-danger"><i class="fas fa-drumstick-bite me-2"></i> 육류 원료육 가공</h4>
+                        <div class="tag-box mb-4">
+                            <span>소고기(전부위)</span> <span>돼지고기(전부위)</span> <span>닭고기(순살/뼈)</span> <span>오리고기</span>
                         </div>
+                        <ul class="list-unstyled small">
+                            <li class="mb-3">
+                                <b>[트리밍 공정]</b> 전문가의 수작업을 통한 지방 및 근막 정밀 제거 (수율 극대화)
+                            </li>
+                            <li class="mb-3">
+                                <b>[두께 조절 슬라이스]</b> 샤브용(1.5mm)부터 스테이크용(30mm)까지 자동 슬라이싱
+                            </li>
+                            <li class="mb-3">
+                                <b>[다짐육(민스)]</b> 함박, 만두, 패티용 황금비율 지방 혼합 가공
+                            </li>
+                            <li class="mb-3">
+                                <b>[연육/시즈닝]</b> 기계식 텐더라이징 및 베이스 시즈닝 처리
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="sol-card">
-                        <div class="card-header"><h4>HMR & Ready-to-Cook</h4></div>
-                        <div class="card-body">
-                            <div class="process-box">
-                                <span class="process-step"><b>01. R&D:</b> 전용 소스 & 레시피 밸런싱</span>
-                                <span class="process-step"><b>02. 키트화:</b> 주재료+부재료+소스 통합</span>
-                                <span class="process-step"><b>03. 검수:</b> 중량 체크 & 포장 무결성 검사</span>
-                                <span class="process-step"><b>04. 물류:</b> 콜드체인 전국 배송 시스템</span>
-                            </div>
+                <div class="col-lg-6">
+                    <div class="prep-item shadow-sm h-100">
+                        <h4 class="brand-font text-info"><i class="fas fa-fish me-2"></i> 수산물 전처리 가공</h4>
+                        <div class="tag-box mb-4">
+                            <span>오징어</span> <span>새우</span> <span>고등어</span> <span>연어</span> <span>꽃게</span> <span>낙지/쭈꾸미</span>
+                        </div>
+                        <ul class="list-unstyled small">
+                            <li class="mb-3">
+                                <b>[내장제거/탈피]</b> 머리, 내장, 껍질 완전 제거 후 즉시 조리 상태 공급
+                            </li>
+                            <li class="mb-3">
+                                <b>[필렛(Fillet) 가공]</b> 가시 없는 순살 상태의 개별 진공 포장
+                            </li>
+                            <li class="mb-3">
+                                <b>[칼집 가공]</b> 양념이 잘 배고 시각적 효과를 높이는 정밀 칼집 작업
+                            </li>
+                            <li class="mb-3">
+                                <b>[자숙(Steamed)]</b> 최적 시간 증숙 후 급속 냉동하여 육질 보존
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                            <div class="product-group">
-                                <div class="product-group-title">판매 1위군 밀키트</div>
-                                <div class="tag-container">
-                                    <span class="tag">부대찌개(모둠햄/육수)</span> <span class="tag">밀푀유나베(정밀적층)</span>
-                                    <span class="tag">감바스 알 아히요</span> <span class="tag">춘천닭갈비(양념/채소세트)</span>
-                                    <span class="tag">안동찜닭</span> <span class="tag">소불고기전골</span>
-                                    <span class="tag">마라탕(재료15종키트)</span> <span class="tag">감자탕(돈등뼈우거지)</span>
-                                </div>
-                                <div class="product-group-title">간편 조리식(HMR)</div>
-                                <div class="tag-container">
-                                    <span class="tag">사골곰탕(파우치)</span> <span class="tag">육개장·미역국</span>
-                                    <span class="tag">컵떡볶이용 떡/소스</span> <span class="tag">볶음밥 5종(냉동)</span>
-                                    <span class="tag">함박스테이크</span> <span class="tag">직화제육(완조리)</span>
-                                </div>
-                                <div class="product-group-title">실버/펫/특수목적</div>
-                                <div class="tag-container">
-                                    <span class="tag">연화식 죽 3종</span> <span class="tag">당뇨식 도시락</span>
-                                    <span class="tag">반려견 생식(화식)</span> <span class="tag">반려견 건조간식</span>
-                                    <span class="tag">캠핑 전용 원팩(One-pack)</span>
-                                </div>
-                            </div>
+    <section id="hmr-total" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="sec-header">
+                <span class="badge-category bg-danger">Full-Service Manufacturing</span>
+                <h2>복합 제조 및 HMR 완제품</h2>
+                <div class="bar"></div>
+                <p class="mt-4">"레시피만 가져오세요. 패키징부터 물류까지 (주)명장의레시피가 책임집니다."</p>
+            </div>
+
+            <div class="row g-5 align-items-center">
+                <div class="col-md-5">
+                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-4 shadow" alt="밀키트">
+                </div>
+                <div class="col-md-7">
+                    <h3 class="fw-bold mb-4">시장성 높은 베스트셀러 카테고리</h3>
+                    <div class="row">
+                        <div class="col-6 mb-4">
+                            <h5 class="fw-bold text-success"><i class="fas fa-utensils me-2"></i> 한식/찌개 키트</h5>
+                            <p class="small text-muted">부대찌개, 김치찜, 갈비찜, 닭볶음탕, 밀푀유나베, 해물탕 등</p>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <h5 class="fw-bold text-success"><i class="fas fa-globe-asia me-2"></i> 아시안/퓨전</h5>
+                            <p class="small text-muted">마라탕, 감바스, 파스타, 팟타이, 나시고렝, 스테이크 세트 등</p>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <h5 class="fw-bold text-success"><i class="fas fa-heart me-2"></i> 건강/특수식</h5>
+                            <p class="small text-muted">다이어트 샐러드, 저염도시락, 연화식 죽, 비건 밀키트 등</p>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <h5 class="fw-bold text-success"><i class="fas fa-paw me-2"></i> 펫푸드 라인업</h5>
+                            <p class="small text-muted">반려견 화식, 수제간식, 동결건조 영양식 생산 지원</p>
                         </div>
                     </div>
                 </div>
@@ -186,21 +285,82 @@
         </div>
     </section>
 
-    <section class="cta-section" id="contact">
-        <div class="container text-center">
-            <h2 class="brand-font mb-4">"명장의레시피에는 불가능한 품목이 없습니다."</h2>
-            <p class="mb-5 fs-5 opacity-75">위에 나열된 품목 외에도 원하시는 모든 가공 형태가 가능합니다.<br>지금 바로 맞춤형 생산을 상담하세요.</p>
-            <a href="mailto:master@mjrecipe.co.kr" class="btn-custom">대량 생산/OEM 문의하기</a>
+    <section id="process" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="sec-header text-center">
+                <h2>철저한 위생 관리 시스템</h2>
+                <div class="bar"></div>
+            </div>
+            
+            <div class="process-visual">
+                <div class="p-step">
+                    <i class="fas fa-truck-loading"></i>
+                    <h5>입고 및 검수</h5>
+                    <p class="small text-muted">당일 산지 원물<br>신선도 체크</p>
+                </div>
+                <div class="p-step">
+                    <i class="fas fa-vial"></i>
+                    <h5>전해수 세척</h5>
+                    <p class="small text-muted">3단계 버블 살균<br>잔류 농약 제거</p>
+                </div>
+                <div class="p-step">
+                    <i class="fas fa-cut"></i>
+                    <h5>명장 정밀 가공</h5>
+                    <p class="small text-muted">최첨단 자동설비<br>규격 절단</p>
+                </div>
+                <div class="p-step">
+                    <i class="fas fa-microchip"></i>
+                    <h5>금속 검출/검수</h5>
+                    <p class="small text-muted">이물질 제로화<br>최종 품질 확인</p>
+                </div>
+                <div class="p-step">
+                    <i class="fas fa-snowflake"></i>
+                    <h5>콜드체인 배송</h5>
+                    <p class="small text-muted">저온 유통 시스템<br>전국 신선 납품</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="text-center">
+    <section id="contact" class="cta-box">
         <div class="container">
-            <p class="mb-2"><b>(주)명장의레시피</b> | 대표이사 옥치민</p>
-            <p class="small">경기도 하남시 미사강변로 (예정) | 사업자번호 : 준비중</p>
-            <p class="mt-4 opacity-50">© 2026 Master's Recipe All rights reserved.</p>
+            <h2 class="brand-font mb-4">"단순한 양파 슬라이스 한 팩도 정성껏 만듭니다."</h2>
+            <p class="mb-5 fs-5">가공 범위가 작아도 괜찮습니다. 귀사의 주방 인건비를 줄여줄 파트너가 되어 드립니다.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <a href="tel:01000000000" class="btn-gold d-block mb-3">전화로 상담하기</a>
+                    <a href="mailto:master@mjrecipe.co.kr" class="text-white opacity-75 small">master@mjrecipe.co.kr 로 메일 보내기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3 class="brand-font text-white mb-4">(주)명장의레시피</h3>
+                    <p class="small">단순 식자재 전처리부터 복합 완제품 제조까지,<br>20년 위생 기술 노하우로 귀사의 성공을 돕습니다.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#prep-only" class="text-decoration-none text-muted">전처리 품목 안내</a></li>
+                        <li><a href="#hmr-total" class="text-decoration-none text-muted">HMR 제조 상담</a></li>
+                        <li><a href="#process" class="text-decoration-none text-muted">HACCP 공정 안내</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4 text-md-end">
+                    <h5 class="text-white mb-4">Contact Info</h5>
+                    <p class="small">대표이사 : 옥치민 | 본사 : 경기도 하남시 미사강변로 (예정)<br>TEL : 010-XXXX-XXXX | E-MAIL : master@mjrecipe.co.kr</p>
+                </div>
+            </div>
+            <div class="pt-5 mt-5 border-top border-secondary text-center">
+                <p class="small opacity-50">© 2026 Master's Recipe All rights reserved. | 위생 환경 솔루션 기반 식품 제조 전문 기업</p>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
