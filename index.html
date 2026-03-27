@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(주)명장의레시피 | 한식명장 옥치민의 프리미엄 푸드 솔루션</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1a4d2e; /* 딥그린: 신선함과 신뢰 */
+            --accent-color: #d4af37;  /* 골드: 명장의 품격 */
+            --light-bg: #f8f9fa;
+        }
+
+        body { font-family: 'Noto Sans KR', sans-serif; color: #333; }
+        h1, h2, h3, .master-font { font-family: 'Noto Serif KR', serif; }
+
+        /* Navigation */
+        .navbar { background: rgba(255,255,255,0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .navbar-brand { font-weight: 700; color: var(--primary-color) !important; font-size: 1.5rem; }
+        .nav-link { font-weight: 500; margin: 0 10px; color: #444 !important; }
+        .nav-link:hover { color: var(--accent-color) !important; }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover; background-position: center;
+            height: 80vh; display: flex; align-items: center; color: white; text-align: center;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .hero span { color: var(--accent-color); }
+
+        /* Master Section */
+        .master-box { border: 1px solid #ddd; padding: 40px; border-radius: 15px; background: white; margin-top: -100px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .master-img { border-radius: 10px; width: 100%; max-width: 300px; }
+
+        /* Section Styling */
+        .section-padding { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 700; color: var(--primary-color); }
+        .section-title div { width: 60px; height: 3px; background: var(--accent-color); margin: 20px auto; }
+
+        /* Card Styling */
+        .category-card { 
+            border: none; border-radius: 15px; overflow: hidden; 
+            transition: 0.3s; background: var(--light-bg); height: 100%;
+        }
+        .category-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .category-card i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px; }
+        .list-item { font-size: 0.9rem; color: #666; margin-bottom: 5px; list-style: none; padding-left: 0; }
+
+        /* Footer */
+        footer { background: #222; color: #eee; padding: 60px 0; font-size: 0.9rem; }
+        .footer-logo { font-size: 1.5rem; font-weight: 700; color: var(--accent-color); margin-bottom: 20px; display: block; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">(주)명장의레시피</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">명장소개</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#preprocessing">전처리부문</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mealkit">밀키트/간편식</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#oem">OEM/ODM</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#strategy">판로전략</a></li>
+                    <li class="nav-item"><a class="btn btn-outline-success ms-lg-3" href="#contact">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 class="master-font">맛의 본질을 <span>명장의 기술</span>로 설계하다</h1>
+            <p class="lead">전처리부터 밀키트, OEM 제조까지 - 대한민국 한식명장 옥치민이 제안하는 프리미엄 솔루션</p>
+        </div>
+    </header>
+
+    <section id="about" class="container">
+        <div class="master-box row align-items-center">
+            <div class="col-md-4 text-center">
+                <img src="https://images.unsplash.com/photo-1583394238182-6f3ad43ebb6c?auto=format&fit=crop&w=500&q=80" alt="한식명장 옥치민" class="master-img mb-3 shadow">
+                <h4 class="fw-bold mb-1">옥 치 민</h4>
+                <p class="text-muted">대한민국 한식명장 / 대표이사</p>
+            </div>
+            <div class="col-md-8">
+                <h3 class="master-font text-success mb-3">"재료의 정직함이 명장의 레시피를 완성합니다."</h3>
+                <p class="mb-4">20년 이상의 위생 및 환경 기술 노하우와 한식 명장의 예술성을 결합하였습니다. (주)명장의레시피는 단순한 식품 제조를 넘어, 파트너사의 주방 환경을 혁신하고 소비자에게는 가장 신선한 '그대로의 맛'을 전달하는 것을 목표로 합니다.</p>
+                <div class="row">
+                    <div class="col-6 col-md-3"><i class="fas fa-check-circle text-warning"></i> 한식명장 인증</div>
+                    <div class="col-6 col-md-3"><i class="fas fa-check-circle text-warning"></i> 20년 위생기술</div>
+                    <div class="col-6 col-md-3"><i class="fas fa-check-circle text-warning"></i> HACCP 기준 공정</div>
+                    <div class="col-6 col-md-3"><i class="fas fa-check-circle text-warning"></i> 맞춤형 R&D</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="preprocessing" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>신선 전처리 솔루션</h2>
+                <div></div>
+                <p>원물의 영양과 신선함을 그대로, 파트너사의 인건비와 시간을 획기적으로 절감합니다.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="category-card p-4 text-center">
+                        <i class="fas fa-leaf"></i>
+                        <h4>야채 전처리</h4>
+                        <p class="small">양파 탈피, 마늘 다짐, 대파 세척 등<br>규격별 절단 및 페이스트 가공</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card p-4 text-center">
+                        <i class="fas fa-apple-whole"></i>
+                        <h4>과일 전처리</h4>
+                        <p class="small">탈피, 슬라이싱, 큐브 커팅<br>갈변 방지 처리 및 컵과일 납품</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card p-4 text-center">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <h4>육류 전처리</h4>
+                        <p class="small">부위별 정밀 소분 및 슬라이싱<br>양념 밑간 처리 및 패티 민스 가공</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card p-4 text-center">
+                        <i class="fas fa-fish"></i>
+                        <h4>수산물 전처리</h4>
+                        <p class="small">해감, 내장 제거, 포 뜨기 및 세척<br>탕용/찜용 규격 절단 및 진공포장</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card p-4 text-center">
+                        <i class="fas fa-seedling"></i>
+                        <h4>나물/건채류</h4>
+                        <p class="small">증숙, 세척, 재수화 전처리<br>제철 산나물 시즌 패키지 생산</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card p-4 text-center">
+                        <i class="fas fa-paw"></i>
+                        <h4>펫푸드 원료</h4>
+                        <p class="small">HACCP 기준 수제 간식 원료<br>야채 퓨레 및 생식용 원물 소분</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mealkit" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>밀키트 & 간편식(HMR)</h2>
+                <div></div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1543332164-6e82f355badc?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-4 shadow" alt="밀키트 제품">
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-4">
+                        <h4 class="fw-bold"><span class="text-success">■</span> 한식/양식/아시안 정통 밀키트</h4>
+                        <p>밀푀유나베, 소불고기전골, 감바스, 마라탕 등 명장의 레시피가 담긴 고품격 키트</p>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="fw-bold"><span class="text-success">■</span> 특수 목적형 밀키트</h4>
+                        <p>다이어트식, 저당/저나트륨 관리식, 비건 전용 및 고령친화 연화식</p>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="fw-bold"><span class="text-success">■</span> 프리미엄 반찬 & 레토르트</h4>
+                        <p>나물 반찬 세트, 장아찌, 죽/스프 및 국·탕 파우치 대량 생산</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oem" class="section-padding">
+        <div class="container text-center">
+            <div class="section-title">
+                <h2>OEM · ODM 수탁제조</h2>
+                <div></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <i class="fas fa-store fa-3x mb-3 text-success"></i>
+                        <h5>유통사 PB</h5>
+                        <p class="small">편의점/마트 전용<br>소포장 상품 개발</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <i class="fas fa-utensils fa-3x mb-3 text-success"></i>
+                        <h5>프랜차이즈</h5>
+                        <p class="small">본사 전용 소스 및<br>규격 식자재 정기 납품</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <i class="fas fa-hashtag fa-3x mb-3 text-success"></i>
+                        <h5>인플루언서/SNS</h5>
+                        <p class="small">브랜드 런칭을 위한<br>소량 다품종 생산 대응</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3">
+                        <i class="fas fa-hospital fa-3x mb-3 text-success"></i>
+                        <h5>급식/의료기관</h5>
+                        <p class="small">대량 급식 전용<br>반조리 베이스 공급</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="strategy" class="section-padding bg-dark text-white text-center">
+        <div class="container">
+            <h2 class="mb-5">Our Core Value</h2>
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <h3>01</h3>
+                    <h5>One-Source Multi-Use</h5>
+                    <p class="text-muted">하나의 원물을 다각도로 가공하여<br>채널별 맞춤형 상품으로 전환</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>02</h3>
+                    <h5>Zero Waste</h5>
+                    <p class="text-muted">전처리 잉여 소재를<br>반찬 및 펫푸드로 재흡수하여 효율 극대화</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>03</h3>
+                    <h5>Global Standards</h5>
+                    <p class="text-muted">기내식부터 수출용 할랄 인증까지<br>엄격한 위생 기준 준수</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <span class="footer-logo">(주)명장의레시피</span>
+                    <p>대표이사 : 옥치민 | 업종 : 식품제조업, 도소매업</p>
+                    <p>본사 : 경기도 하남시 미사강변로 (예정)</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3">Quick Link</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-muted">B2B 입찰/납품 안내</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">OEM 제작 공정 확인</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">공공급식 플랫폼 등록 현황</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-3">Contact Us</h5>
+                    <p><i class="fas fa-phone me-2"></i> 상담전화 : 02-XXX-XXXX</p>
+                    <p><i class="fas fa-envelope me-2"></i> 이메일 : master@recipe.com</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fas fa-blog fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4 border-secondary">
+            <div class="text-center text-muted small">
+                © 2026 (주)명장의레시피 All Rights Reserved. 본 사이트는 한식명장 옥치민의 기술력을 바탕으로 설계되었습니다.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
