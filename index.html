@@ -3,229 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(주)명장의레시피 | Product Intelligence System</title>
+    <title>Product Intelligence System | (주)명장의레시피</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        :root { 
-            --gold: #b89523; --deep-green: #0a261d; --dark: #111; 
-            --light-bg: #f8f9fa; --border: #eee;
+        /* [SAMSUNG PREMIUM DESIGN SYSTEM] */
+        :root {
+            --s-black: #000000;
+            --s-white: #ffffff;
+            --s-gray-bg: #f4f4f4;
+            --s-accent: #2189ff; /* Samsung Blue 포인트 대신 명장의 Gold: #b89523 */
+            --m-gold: #b89523;
         }
-        body { font-family: 'Noto Sans KR', sans-serif; color: var(--dark); line-height: 1.7; }
-        .serif { font-family: 'Noto Serif KR', serif; }
-        
-        /* Typography */
-        .title { font-family: 'Noto Serif KR', serif; font-size: 3.5rem; font-weight: 900; color: var(--deep-green); margin-bottom: 10px; }
-        .sub { font-size: 1.25rem; color: var(--gold); font-weight: 700; margin-bottom: 60px; }
-        h3 { font-family: 'Noto Serif KR', serif; font-weight: 900; border-left: 5px solid var(--gold); padding-left: 15px; margin-bottom: 30px; color: #333; }
-        h4 { font-weight: 900; color: var(--deep-green); margin-bottom: 15px; display: flex; align-items: center; }
-        h4::before { content: '✔'; color: var(--gold); margin-right: 10px; }
 
-        /* Premium Card System */
-        .card-premium { 
-            background: #fff; border: 1px solid var(--border); border-radius: 0; 
-            padding: 50px; margin-bottom: 40px; transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            background-color: var(--s-white); 
+            color: var(--s-black);
+            word-break: keep-all;
+            -webkit-font-smoothing: antialiased;
         }
-        .card-premium:hover { border-color: var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
-        
-        /* Lists */
-        ul { padding-left: 0; list-style: none; }
-        ul li { position: relative; padding-left: 20px; margin-bottom: 8px; font-weight: 500; }
-        ul li::before { content: '•'; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-        
-        /* Grid Tables for 200+ Items */
-        .item-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; background: #fafafa; padding: 25px; border-radius: 10px; }
-        .item-name { font-size: 0.9rem; border-bottom: 1px solid #eee; padding: 5px 0; display: flex; justify-content: space-between; }
-        .item-tag { font-size: 0.7rem; color: var(--gold); font-weight: 700; }
 
-        /* Section Spacing */
-        .section { padding: 100px 0; }
-        .bg-light { background-color: var(--light-bg) !important; }
-        
-        /* Detail Badge */
-        .badge-tech { background: var(--deep-green); color: #fff; padding: 4px 12px; font-size: 0.75rem; border-radius: 4px; margin-left: 10px; vertical-align: middle; }
+        /* Typography - 초거대 텍스트와 얇은 폰트의 조화 */
+        .display-hero { font-size: 5.5rem; font-weight: 900; letter-spacing: -4px; line-height: 1.1; }
+        .display-section { font-size: 3.5rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 2rem; }
+        .sub-text { font-size: 1.5rem; font-weight: 300; color: #666; margin-bottom: 3rem; }
+
+        /* Section Layout - 압도적인 여백 */
+        .s-section { padding: 160px 0; overflow: hidden; }
+        .full-height { min-height: 100vh; display: flex; align-items: center; }
+
+        /* Card Design - 삼성 갤럭시 스타일의 미니멀 카드 */
+        .s-card {
+            background: var(--s-gray-bg);
+            border-radius: 32px;
+            padding: 60px;
+            height: 100%;
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: none;
+        }
+        .s-card:hover { transform: scale(1.02); background: #eee; }
+
+        /* Product List - 정갈한 데이터 그리드 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .grid-item {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .grid-item .label { font-weight: 700; font-size: 1.1rem; }
+        .grid-item .val { font-size: 0.9rem; color: var(--m-gold); font-weight: 500; }
+
+        /* Tech Spec List */
+        .spec-list { list-style: none; padding: 0; }
+        .spec-list li { 
+            padding: 15px 0; 
+            border-bottom: 1px solid #ddd; 
+            display: flex; 
+            justify-content: space-between;
+            font-size: 1.1rem;
+        }
+
+        /* Navigation */
+        .s-nav {
+            padding: 20px 0;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
+        }
+        .s-nav .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; }
+
+        /* Animation */
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
-<section class="section bg-light">
+<nav class="s-nav">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="logo">MASTER'S RECIPE</div>
+        <div class="d-none d-md-block">
+            <a href="#" class="text-dark text-decoration-none mx-3 fw-bold">Overview</a>
+            <a href="#" class="text-dark text-decoration-none mx-3 fw-bold">Intelligence</a>
+            <a href="#" class="text-dark text-decoration-none mx-3 fw-bold">Solutions</a>
+        </div>
+        <button class="btn btn-dark rounded-pill px-4 fw-bold">Contact Us</button>
+    </div>
+</nav>
+
+<section class="s-section full-height">
     <div class="container">
-
-        <div class="text-center mb-5">
-            <h2 class="title">Product Intelligence System</h2>
-            <p class="sub">옥치민 명장의 레시피 데이터와 결합된 매출 제조 공학</p>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="mb-4">01. 농산물 전처리 솔루션 <span class="badge-tech">Zero-Cut Tech</span></h3>
-
-            <div class="card-premium mb-4">
-                <h4>무엇을 제공하는가 (명장의 6단계 전처리)</h4>
-                <p>단순 세척을 넘어 <strong>양파, 대파, 마늘, 감자, 당근</strong> 등 모든 채소를 매장 메뉴의 규격에 맞춰 공학적으로 가공합니다.</p>
-                
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <h5 class="fw-bold text-gold small mb-3">[원물별 핵심 가공 디테일]</h5>
-                        <ul class="small">
-                            <li><strong>양파:</strong> 뿌리 미세 세척 / 용도별 슬라이스(1-10mm) / 갈변 방지 탈수</li>
-                            <li><strong>대파:</strong> 흰부분·초록부분 비율 맞춤 / 어긋썰기 / 파채용 특수 가공</li>
-                            <li><strong>마늘:</strong> 국내산 특상급 / 꼭지 완전 제거 / 다짐 입도 조절 (굵게/미세하게)</li>
-                            <li><strong>근채류:</strong> 감자 전분 제거 / 당근·무 20종 규격 절단 (다이스, 채썰기 등)</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h5 class="fw-bold text-gold small mb-3">[공정 기반 품질 시스템]</h5>
-                        <ul class="small">
-                            <li>3단계 고압 버블 세척 & 초음파 살균 (유해균 99.9% 사멸)</li>
-                            <li>고속 원심 탈수를 통한 조직감 유지 및 선도 5일 연장</li>
-                            <li>질소 충전 / 진공 소분 포장 (100g~5kg 맞춤 공급)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="row mt-4 pt-4 border-top">
-                    <div class="col-md-4">
-                        <h5 class="small fw-black">✔ 고객이 얻는 것</h5>
-                        <ul class="small">
-                            <li>인건비 50~70% 혁신적 절감</li>
-                            <li>조리 시간 60% 단축 (바로 끓이기 가능)</li>
-                            <li>폐기율 0% (쓰레기 발생 원천 차단)</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h5 class="small fw-black">✔ 사용 고객</h5>
-                        <p class="small">전국 프랜차이즈 본사, 대형 급식소, 배달 전문점, 특급 호텔 주방</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h5 class="small fw-black">✔ 주요 납품 형태</h5>
-                        <p class="small">슬라이스, 다이스, 큐브, 채썰기 등 전 규격 / 진공 & 대용량 벌크</p>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-12 reveal">
+                <h1 class="display-hero">Product<br>Intelligence<br><span style="color:var(--m-gold)">System</span></h1>
+                <p class="sub-text mt-4">단순 식재료를 넘어, 매출을 창출하는 명장의 공학적 구조</p>
             </div>
         </div>
-
-        <div class="mb-5">
-            <h3 class="mb-4">02. 수산물 전처리 & 김치/반찬 솔루션</h3>
-
-            <div class="card-premium">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <h4>핵심 가치</h4>
-                        <p>손질이 까다롭고 신선도가 생명인 수산물과 명장 비법의 김치류를 규격화하여 조리 리스크를 완벽 제거합니다.</p>
-                        
-                        <h5 class="small fw-black mt-4">✔ 주요 제품군</h5>
-                        <div class="item-list-grid">
-                            <div class="item-name"><span>남도풍 포기김치 / 석박지</span><span class="item-tag">BEST</span></div>
-                            <div class="item-name"><span>자숙 문어 / 오징어 슬라이스</span><span class="item-tag">급냉</span></div>
-                            <div class="item-name"><span>명이나물 / 깻잎 장아찌</span><span class="item-tag">고기용</span></div>
-                            <div class="item-name"><span>손질 고등어 / 갈치 (가시 제로)</span><span class="item-tag">순살</span></div>
-                            <div class="item-name"><span>오징어 / 낙지 / 꼴뚜기 젓갈</span><span class="item-tag">명장비법</span></div>
-                            <div class="item-name"><span>해감 완료 조개 / 해산물 믹스</span><span class="item-tag">밀키트용</span></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 ps-lg-5 border-start">
-                        <h4>왜 중요한가</h4>
-                        <p class="small">수산물과 김치는 숙련도와 계절에 따라 맛과 원가가 크게 변합니다. 옥치민 명장의 <strong>표준 염도/당도 관리 시스템</strong>을 통해 365일 동일한 품질을 유지하며 브랜드 신뢰도를 확보합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="mb-4">03. 육류 전처리 & 명품 양념육 솔루션</h3>
-
-            <div class="card-premium">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4>제공 범위 (마스터 리스트 40종)</h4>
-                        <ul class="small">
-                            <li><strong>소고기:</strong> 저온 연육 불고기, 양념 LA갈비, 스테이크 시즈닝</li>
-                            <li><strong>돼지고기:</strong> 직화 제육볶음, 간장 양념갈비, 찌개용 다짐육</li>
-                            <li><strong>닭/오리:</strong> 춘천식 닭갈비, 훈제오리 야채믹스, 닭다리살 정육</li>
-                            <li><strong>특수 가공:</strong> 큐브, 슬라이스, 메뉴별 소분 포장 완료</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h4>비즈니스 효과</h4>
-                        <ul class="small">
-                            <li><strong>전문성:</strong> 옥치민 명장의 특제 연육 공법으로 육즙 보존</li>
-                            <li><strong>효율성:</strong> 주방 숙련도 의존 제로 (봉지만 뜯어 조리)</li>
-                            <li><strong>확장성:</strong> 숍인숍, 도시락, 프랜차이즈 신메뉴 즉시 이식 가능</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="mb-4">04. 밀키트 & HMR 완성형 상품 사업</h3>
-
-            <div class="card-premium">
-                <div class="row">
-                    <div class="col-md-4 text-center border-end">
-                        <div class="p-3">
-                            <h2 class="text-gold serif fw-black">전처리 식재료</h2>
-                            <i class="fas fa-plus my-2"></i>
-                            <h2 class="text-gold serif fw-black">명장 소스</h2>
-                            <i class="fas fa-equals my-2"></i>
-                            <h4 class="fw-black mt-2">완성형 상품</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-8 ps-4">
-                        <h4>명장 전용 제품군 (80여 종)</h4>
-                        <div class="item-list-grid mb-3">
-                            <div class="item-name"><span>명품 왕갈비탕 / 사골곰탕</span><span class="item-tag">HMR</span></div>
-                            <div class="item-name"><span>부대찌개 / 곱창전골 밀키트</span><span class="item-tag">세트</span></div>
-                            <div class="item-name"><span>마라탕 / 쌀국수 아시안 팩</span><span class="item-tag">트렌드</span></div>
-                            <div class="item-name"><span>궁중 잡채 / 장조림 세트</span><span class="item-tag">반찬형</span></div>
-                        </div>
-                        <p class="small text-muted">쿠팡, 마켓컬리, 홈쇼핑, 편의점 PB 등 대형 채널 입점에 최적화된 HACCP 인증 생산 라인을 가동합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="mb-5">
-            <h3 class="mb-4">05. OEM / ODM 제조 & 기업 컨설팅</h3>
-
-            <div class="card-premium" style="border-top: 10px solid var(--deep-green);">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="p-4 bg-light h-100">
-                            <h4 class="serif">OEM (고객 레시피 생산)</h4>
-                            <p class="small">프랜차이즈 본사 고유의 맛을 데이터화하여 대량 생산 시스템에 이식합니다. 전국 매장 어디서나 동일한 맛을 낼 수 있는 물류망을 지원합니다.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="p-4 bg-light h-100">
-                            <h4 class="serif">ODM (기획부터 생산까지)</h4>
-                            <p class="small">옥치민 명장의 R&D 센터에서 브랜드 컨셉에 맞는 신메뉴를 기획하고 생산, 납품까지 올인원으로 제공하는 '비즈니스 파트너' 역할을 수행합니다.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-5">
-                    <h5 class="fw-black text-center mb-4">✔ (주)명장의레시피만의 핵심 경쟁력</h5>
-                    <div class="row text-center g-3">
-                        <div class="col-md-4"><div class="p-3 border">고정 매출 구조 확보</div></div>
-                        <div class="col-md-4"><div class="p-3 border">대량 생산 기반 구축</div></div>
-                        <div class="col-md-4"><div class="p-3 border">Turn-around 솔루션</div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center py-5">
-            <h2 class="serif fw-black mb-4">"명장의 지능이 담긴 식재료,<br>성공은 여기서 시작됩니다."</h2>
-            <a href="mailto:master@mjrecipe.co.kr" class="btn btn-dark btn-lg px-5 py-3 rounded-0 fw-bold">시스템 도입 상담 및 제안서 요청</a>
-        </div>
-
     </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<section class="s-section bg-light">
+    <div class="container">
+        <div class="row align-items-end mb-5 reveal">
+            <div class="col-lg-8">
+                <h2 class="display-section">01. 농산물 전처리 솔루션</h2>
+                <p class="fs-4 fw-light">양파 하나에도 명장의 공학이 담깁니다. 주방의 칼을 없애는 제로-컷 기술.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <h3 class="display-4 fw-black text-gold">50-70%</h3>
+                <p class="fw-bold">Labor Cost Reduction</p>
+            </div>
+        </div>
+
+        <div class="row g-4 reveal">
+            <div class="col-md-6">
+                <div class="s-card">
+                    <h3 class="fw-black mb-4">Precision Processing</h3>
+                    <ul class="spec-list">
+                        <li><span>양파 (Onion)</span><strong>슬라이스, 다이스, 갈변방지</strong></li>
+                        <li><span>대파 (Scallion)</span><strong>어긋썰기, 파채, 비율맞춤</strong></li>
+                        <li><span>마늘 (Garlic)</span><strong>꼭지제거, 맞춤 입도다짐</strong></li>
+                        <li><span>근채류 (Roots)</span><strong>감자 전분제거, 무/당근 20종</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="s-card" style="background:var(--s-black); color:var(--s-white);">
+                    <h3 class="fw-black mb-4">Tech Specs</h3>
+                    <p class="opacity-75">명장의 6단계 초위생 공정</p>
+                    <div class="mt-5">
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-gold">3-Step Bubble Clean</h5>
+                            <p class="small">초음파 살균으로 대장균 99.9% 제거</p>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-gold">MAP Packaging</h5>
+                            <p class="small">산소조절 포장으로 신선도 5일 연장</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="s-section">
+    <div class="container">
+        <div class="text-center mb-5 reveal">
+            <h2 class="display-section">Master Archive 200+</h2>
+            <p class="sub-text">품질의 표준화, 명장의 레시피가 제품이 되다</p>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-6 reveal">
+                <h4 class="fw-black mb-4 border-bottom pb-3">수산 및 김치/반찬</h4>
+                <div class="grid-container">
+                    <div class="grid-item"><span class="label">남도 포기김치</span><span class="val">Best</span></div>
+                    <div class="grid-item"><span class="label">설렁탕 석박지</span><span class="val">Aged</span></div>
+                    <div class="grid-item"><span class="label">자숙 문어슬라이스</span><span class="val">Frozen</span></div>
+                    <div class="grid-item"><span class="label">명품 오징어젓갈</span><span class="val">Premium</span></div>
+                </div>
+            </div>
+            <div class="col-lg-6 reveal">
+                <h4 class="fw-black mb-4 border-bottom pb-3">육류 및 양념육</h4>
+                <div class="grid-container">
+                    <div class="grid-item"><span class="label">연육 불고기</span><span class="val">Beef</span></div>
+                    <div class="grid-item"><span class="label">불맛 제육볶음</span><span class="val">Pork</span></div>
+                    <div class="grid-item"><span class="label">춘천식 닭갈비</span><span class="val">Chicken</span></div>
+                    <div class="grid-item"><span class="label">양념 LA갈비</span><span class="val">Signature</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="s-section bg-dark text-white">
+    <div class="container">
+        <div class="row align-items-center reveal">
+            <div class="col-lg-6">
+                <h2 class="display-section text-white">Future Production</h2>
+                <p class="fs-4 fw-light opacity-50 mb-5">브랜드의 성장을 가속하는 OEM / ODM 매니지먼트</p>
+                <div class="d-flex gap-4">
+                    <div>
+                        <h1 class="display-4 fw-black text-gold">OEM</h1>
+                        <p class="small">Recipe Based Production</p>
+                    </div>
+                    <div class="border-start ps-4">
+                        <h1 class="display-4 fw-black text-gold">ODM</h1>
+                        <p class="small">Concept to Delivery</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="s-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                    <h4 class="text-white mb-4 fw-bold">Intelligence Structure</h4>
+                    <ul class="spec-list text-white">
+                        <li style="border-color: rgba(255,255,255,0.1);"><span>기존 주방</span><strong>인력 의존형</strong></li>
+                        <li style="border-color: rgba(255,255,255,0.1);"><span>Intelligence System</span><strong class="text-gold">데이터 표준화</strong></li>
+                        <li style="border-color: rgba(255,255,255,0.1);"><span>비즈니스 결과</span><strong class="text-gold">이익 극대화</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="s-section pb-5">
+    <div class="container">
+        <div class="row border-top pt-5">
+            <div class="col-md-6">
+                <h3 class="fw-black mb-4">MASTER'S RECIPE</h3>
+                <p class="text-muted small">옥치민 명장의 프리미엄 푸드테크 그룹</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="fw-bold mb-1">Business Inquiry</p>
+                <p class="display-6 fw-black mb-4">02.1234.5678</p>
+                <button class="btn btn-outline-dark rounded-pill px-5">Download Catalog</button>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Reveal Animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
