@@ -1,105 +1,60 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Intelligence System | (주)명장의레시피</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --s-black: #000000; --s-white: #ffffff; --s-gray-bg: #f4f4f4;
-            --m-gold: #b89523; --s-deep: #0a261d;
-        }
-
-        body { 
-            font-family: 'Noto Sans KR', sans-serif; background-color: var(--s-white); color: var(--s-black);
-            word-break: keep-all; -webkit-font-smoothing: antialiased;
-        }
-
-        /* Typography */
-        .display-hero { font-size: 5rem; font-weight: 900; letter-spacing: -4px; line-height: 1.1; }
-        .display-section { font-size: 3rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 1.5rem; }
-        .category-num { font-size: 1.2rem; font-weight: 900; color: var(--m-gold); margin-bottom: 0.5rem; display: block; }
-        
-        /* Section Layout */
-        .s-section { padding: 140px 0; border-bottom: 1px solid #eee; }
-        .full-height { min-height: 100vh; display: flex; align-items: center; }
-
-        /* 삼성 스타일 그리드 & 카드 */
-        .s-card-premium {
-            background: var(--s-gray-bg); border-radius: 24px; padding: 50px; height: 100%;
-            transition: all 0.5s ease; border: none;
-        }
-        .s-card-premium:hover { background: #ececec; transform: translateY(-10px); }
-
-        /* 리스트 디테일 */
-        .detail-list { list-style: none; padding: 0; margin-top: 20px; }
-        .detail-list li { 
-            padding: 12px 0; border-bottom: 1px solid #ddd; display: flex; 
-            justify-content: space-between; font-size: 1rem; font-weight: 400;
-        }
-        .detail-list li b { color: var(--s-deep); font-weight: 700; }
-
-        /* 배지 스타일 */
-        .s-badge { 
-            background: var(--m-gold); color: white; padding: 4px 12px; 
-            border-radius: 50px; font-size: 0.75rem; font-weight: 700; vertical-align: middle;
-        }
-
-        /* 내비게이션 */
-        .s-nav {
-            padding: 20px 0; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px);
-            position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #eee;
-        }
-        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s all ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-    </style>
-</head>
-<body>
-
-<nav class="s-nav">
-    <div class="container d-flex justify-content-between align-items-center">
-        <div class="fw-black fs-4 letter-spacing--1">MASTER'S RECIPE</div>
-        <div class="d-none d-lg-block fw-bold small">
-            <a href="#cat1" class="text-dark text-decoration-none mx-3">농산물</a>
-            <a href="#cat2" class="text-dark text-decoration-none mx-3">수산물</a>
-            <a href="#cat3" class="text-dark text-decoration-none mx-3">육류</a>
-            <a href="#cat4" class="text-dark text-decoration-none mx-3">HMR</a>
-            <a href="#cat5" class="text-dark text-decoration-none mx-3">솔루션</a>
-        </div>
-        <button class="btn btn-dark rounded-pill px-4 btn-sm fw-bold">Contact Inquiry</button>
-    </div>
-</nav>
-
-<section class="s-section full-height bg-white">
-    <div class="container">
+<!-- 🔥 01. MASTER CATEGORY (옥치민 명장 강조) -->
+<section id="master" class="s-section full-height bg-dark text-white">
+    <div class="container text-center">
         <div class="reveal">
-            <span class="text-gold fw-black mb-3 d-block">INTELLIGENCE PLATFORM</span>
-            <h1 class="display-hero">Beyond Food,<br>Become <span class="text-gold">System.</span></h1>
-            <p class="fs-4 fw-light mt-4 text-muted">옥치민 명장의 25년 데이터가 설계한 8대 인텔리전스 카테고리</p>
+            <span class="category-num">MASTER 01</span>
+            <h1 class="display-hero text-white">OK CHI MIN<br><span class="text-gold">KOREAN MASTER</span></h1>
+            <p class="fs-4 mt-4 opacity-75">
+                25년 외식 데이터 + 10,000개 레시피 + 500개 매장 운영 경험<br>
+                단순 식품이 아닌 “수익 구조”를 설계하는 명장 시스템
+            </p>
+
+            <div class="row mt-5 g-4">
+                <div class="col-md-4">
+                    <div class="s-card-premium bg-white text-dark">
+                        <h5 class="fw-black">레시피 DB</h5>
+                        <p class="small">한식, 중식, 아시안 포함<br><b>10,000+ 레시피</b></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="s-card-premium bg-white text-dark">
+                        <h5 class="fw-black">매장 운영 경험</h5>
+                        <p class="small">프랜차이즈 + 개인 매장<br><b>500개 이상 컨설팅</b></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="s-card-premium bg-white text-dark">
+                        <h5 class="fw-black">상품 개발</h5>
+                        <p class="small">HMR / 밀키트 / OEM<br><b>1,000종 이상 출시</b></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
+
+<!-- 🔥 02. 농산물 (확장 버전) -->
 <section id="cat1" class="s-section bg-light">
     <div class="container">
         <div class="row align-items-center reveal">
             <div class="col-lg-5">
-                <span class="category-num">01</span>
-                <h2 class="display-section">농산물 전처리<br>엔지니어링</h2>
-                <p class="fs-5 text-muted">주방의 칼을 없애는 'Zero-Cut' 기술.<br>양파 하나에도 6단계 공법이 적용됩니다.</p>
+                <span class="category-num">02</span>
+                <h2 class="display-section">농산물 전처리<br>Full Automation</h2>
+                <p class="fs-5 text-muted">200종 이상의 농산물을 규격화<br>주방 노동력 완전 제거 시스템</p>
             </div>
+
             <div class="col-lg-7">
                 <div class="s-card-premium">
-                    <h4 class="fw-black mb-4">Precision Processing List</h4>
                     <ul class="detail-list">
-                        <li><span>🧅 <b>양파 (Onion)</b></span><span>슬라이스(1~10mm), 다이스, 갈변방지 탈수</span></li>
-                        <li><span>🌿 <b>대파 (Scallion)</b></span><span>어긋썰기, 송송썰기, 파채(특수세척)</span></li>
-                        <li><span>🧄 <b>마늘/생강 (Garlic)</b></span><span>꼭지제거, 용도별 입도다짐(굵게/미세)</span></li>
-                        <li><span>🥕 <b>근채류 (Roots)</b></span><span>감자 전분제거, 무/당근 20종 규격 절단</span></li>
-                        <li><span>🥬 <b>엽채류 (Cabbage)</b></span><span>양배추 심지제거, 한입크기 정밀 가공</span></li>
+                        <li><span>🧅 양파</span><span>슬라이스 / 다이스 / 링 / 갈변방지</span></li>
+                        <li><span>🥕 당근</span><span>채 / 큐브 / 스틱 / 믹스컷</span></li>
+                        <li><span>🥔 감자</span><span>전분제거 / 튀김용 / 찜용</span></li>
+                        <li><span>🌿 대파</span><span>송송 / 어슷 / 파채</span></li>
+                        <li><span>🥬 양배추</span><span>샐러드용 / 볶음용 / 절임용</span></li>
+                        <li><span>🍄 버섯류</span><span>슬라이스 / 믹스팩</span></li>
+                        <li><span>🥗 샐러드 믹스</span><span>10종 혼합 / 드레싱 포함</span></li>
+                        <li><span>🥒 절임채소</span><span>피클 / 장아찌용 전처리</span></li>
                     </ul>
                 </div>
             </div>
@@ -107,198 +62,163 @@
     </div>
 </section>
 
+
+<!-- 🔥 03. 수산물 확장 -->
 <section id="cat2" class="s-section">
     <div class="container">
         <div class="row reveal">
-            <div class="col-lg-12 mb-5 text-center">
-                <span class="category-num">02</span>
-                <h2 class="display-section">수산물 규격화 시스템</h2>
+            <div class="col-lg-12 text-center mb-5">
+                <span class="category-num">03</span>
+                <h2 class="display-section">수산물 Total Solution</h2>
             </div>
+
             <div class="col-md-6">
                 <div class="s-card-premium">
-                    <h4 class="fw-black mb-3">손질 리스크 제로</h4>
-                    <p class="small text-muted mb-4">수산물 특유의 비린내와 손질 숙련도 문제를 완벽히 해결한 규격 상품입니다.</p>
                     <ul class="detail-list">
-                        <li><span>손질 고등어/갈치</span><b>가시 제거 완료 (순살)</b></li>
-                        <li><span>자숙 문어/오징어</span><b>초저온 급냉 슬라이스</b></li>
-                        <li><span>새우/패류</span><b>해감 및 탈피 완료</b></li>
+                        <li><span>고등어</span><b>순살 / 염장 / 구이용</b></li>
+                        <li><span>갈치</span><b>토막 / 필렛</b></li>
+                        <li><span>오징어</span><b>슬라이스 / 링</b></li>
+                        <li><span>문어</span><b>자숙 / 슬라이스</b></li>
+                        <li><span>새우</span><b>탈피 / 해감 완료</b></li>
+                        <li><span>조개류</span><b>해감 + 진공포장</b></li>
+                        <li><span>연어</span><b>스테이크 / 사시미용</b></li>
                     </ul>
                 </div>
             </div>
+
             <div class="col-md-6">
-                <div class="s-card-premium" style="background:var(--s-deep); color:white;">
-                    <h4 class="fw-black mb-3 text-gold">Master's Value</h4>
-                    <p class="opacity-75">명장의 표준 염도 관리 시스템을 통해 365일 동일한 선도와 맛을 유지하며, 주방의 조리 시간을 70% 단축시킵니다.</p>
+                <div class="s-card-premium" style="background:#0a261d; color:white;">
+                    <h4 class="text-gold">핵심 경쟁력</h4>
+                    <p>비린내 제거 + 표준 염도 + 급속냉동 시스템으로<br>
+                    매장 클레임 90% 감소</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+
+<!-- 🔥 04. 육류 대폭 강화 -->
 <section id="cat3" class="s-section bg-light">
     <div class="container">
-        <div class="row align-items-center reveal">
-            <div class="col-lg-7 order-2 order-lg-1">
+        <div class="row reveal">
+            <div class="col-lg-12 text-center mb-5">
+                <span class="category-num">04</span>
+                <h2 class="display-section">육류 + 양념육 150종</h2>
+            </div>
+
+            <div class="col-lg-12">
                 <div class="s-card-premium">
                     <ul class="detail-list">
-                        <li><span>🥩 <b>소고기</b></span><span>저온 연육 불고기, 양념 LA갈비, 스테이크</span></li>
-                        <li><span>🐷 <b>돼지고기</b></span><span>직화 제육볶음, 간장 양념갈비, 다짐육</span></li>
-                        <li><span>🐔 <b>닭/오리</b></span><span>춘천식 닭갈비, 훈제오리 야채믹스</span></li>
-                        <li><span>🔥 <b>특수 가공</b></span><span>수제 떡갈비, 고추장 삼겹살 원팩</span></li>
+                        <li><span>소고기</span><span>불고기 / 국거리 / 스테이크 / 갈비</span></li>
+                        <li><span>돼지고기</span><span>제육 / 삼겹 / 갈비 / 돈까스용</span></li>
+                        <li><span>닭고기</span><span>닭갈비 / 순살 / 양념치킨</span></li>
+                        <li><span>오리</span><span>훈제 / 슬라이스 / 밀키트</span></li>
+                        <li><span>특수육</span><span>곱창 / 막창 / 대창</span></li>
+                        <li><span>완제품</span><span>떡갈비 / 패티 / 미트볼</span></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-5 ps-lg-5 order-1 order-lg-2 mb-5 mb-lg-0">
-                <span class="category-num">03</span>
-                <h2 class="display-section">육류 인텔리전스 &<br>양념육 솔루션</h2>
-                <p class="text-muted">육즙을 보존하는 명장의 연육 공법과<br>독점 배합 소스의 완벽한 결합.</p>
-            </div>
         </div>
     </div>
 </section>
 
+
+<!-- 🔥 05. 김치 / 반찬 확장 -->
 <section id="cat4" class="s-section">
     <div class="container">
-        <div class="reveal mb-5 text-center">
-            <span class="category-num">04</span>
-            <h2 class="display-section">명장 김치 · 반찬 아카이브</h2>
-            <p class="sub-text">200여 종의 마스터 리스트 중 가장 사랑받는 핵심 라인업</p>
+        <div class="reveal text-center mb-5">
+            <span class="category-num">05</span>
+            <h2 class="display-section">김치 · 반찬 200종</h2>
         </div>
-        <div class="row g-4 reveal">
+
+        <div class="row g-4">
             <div class="col-md-4">
-                <div class="p-4 border-start border-4">
-                    <h5 class="fw-black">Master Kimchi</h5>
-                    <p class="small text-muted">남도풍 포기김치, 설렁탕 석박지, 열무물김치, 파김치, 보쌈무김치 등 30종</p>
+                <div class="s-card-premium">
+                    <h5>김치</h5>
+                    <p>포기 / 총각 / 열무 / 파김치 / 백김치 등<br><b>50종</b></p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="p-4 border-start border-4">
-                    <h5 class="fw-black">Premium Side-Dish</h5>
-                    <p class="small text-muted">메추리알 장조림, 견과류 멸치볶음, 진미채, 명이나물, 깻잎지 등 50종</p>
+                <div class="s-card-premium">
+                    <h5>반찬</h5>
+                    <p>장조림 / 볶음 / 절임 / 무침<br><b>100종</b></p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="p-4 border-start border-4">
-                    <h5 class="fw-black">Traditional Jeotgal</h5>
-                    <p class="small text-muted">명품 오징어젓갈, 낙지젓갈, 명란젓갈, 꼴뚜기젓 등 20종</p>
+                <div class="s-card-premium">
+                    <h5>젓갈</h5>
+                    <p>명란 / 오징어 / 낙지 등<br><b>50종</b></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+
+<!-- 🔥 06. HMR 확장 -->
 <section id="cat5" class="s-section bg-light">
-    <div class="container">
-        <div class="row align-items-center reveal">
-            <div class="col-lg-6">
-                <span class="category-num">05</span>
-                <h2 class="display-section">밀키트 & HMR<br>완성형 플랫폼</h2>
-                <p class="fs-5 text-muted">식재료 + 소스 + 레시피의 완벽한 결합.<br>쿠팡, 마켓컬리 입점 최적화 상품군.</p>
-            </div>
-            <div class="col-lg-6">
-                <div class="s-card-premium bg-white">
-                    <div class="d-flex justify-content-between mb-4 pb-2 border-bottom">
-                        <span class="fw-bold">시그니처 탕류</span><span class="text-gold">왕갈비탕, 사골곰탕, 육개장</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-4 pb-2 border-bottom">
-                        <span class="fw-bold">트렌디 아시안</span><span class="text-gold">마라탕, 쌀국수, 팟타이</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <span class="fw-bold">한식 전골</span><span class="text-gold">부대찌개, 곱창전골, 밀푀유나베</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="cat6" class="s-section">
     <div class="container">
         <div class="row reveal">
             <div class="col-lg-12 text-center mb-5">
                 <span class="category-num">06</span>
-                <h2 class="display-section">OEM / ODM 제조 매니지먼트</h2>
+                <h2 class="display-section">HMR / 밀키트 300종</h2>
             </div>
-            <div class="col-md-6 mb-4">
-                <div class="s-card-premium text-center">
-                    <h1 class="display-4 fw-black">OEM</h1>
-                    <p class="fw-bold text-gold">Recipe Implementation</p>
-                    <p class="small px-lg-5">고객사의 독창적인 레시피를 명장의 스마트 팩토리에서 대량 생산 체제로 완벽하게 전환합니다.</p>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="s-card-premium text-center">
-                    <h1 class="display-4 fw-black">ODM</h1>
-                    <p class="fw-bold text-gold">Concept to Product</p>
-                    <p class="small px-lg-5">메뉴 기획부터 브랜딩, 제조, 납품까지 올인원으로 제공하는 비즈니스 파트너십 솔루션입니다.</p>
+
+            <div class="col-lg-12">
+                <div class="s-card-premium">
+                    <ul class="detail-list">
+                        <li><span>탕류</span><span>갈비탕 / 육개장 / 곰탕</span></li>
+                        <li><span>찌개</span><span>부대찌개 / 김치찌개</span></li>
+                        <li><span>전골</span><span>곱창 / 밀푀유 / 샤브</span></li>
+                        <li><span>아시안</span><span>마라탕 / 팟타이 / 쌀국수</span></li>
+                        <li><span>덮밥</span><span>제육 / 불고기 / 카레</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="cat7" class="s-section bg-dark text-white">
+
+<!-- 🔥 07. OEM / ODM 유지 강화 -->
+<section id="cat6" class="s-section">
     <div class="container">
-        <div class="reveal mb-5">
-            <span class="category-num">07</span>
-            <h2 class="display-section text-white">7-Step Business Solution</h2>
-            <p class="opacity-50">제조를 넘어 가맹본부와 점주의 상생을 설계합니다.</p>
-        </div>
-        <div class="row g-4 reveal">
-            <div class="col-md-4"><div class="p-4 border border-secondary"><b>01 레시피 디지털화</b><br><small class="opacity-50">g단위 계량과 타이머 매뉴얼 구축</small></div></div>
-            <div class="col-md-4"><div class="p-4 border border-secondary"><b>02 원팩 물류 시스템</b><br><small class="opacity-50">주방 노동력 90% 센터 이전</small></div></div>
-            <div class="col-md-4"><div class="p-4 border border-secondary"><b>03 제로-컷 야채 공급</b><br><small class="opacity-50">인건비 절감 및 쓰레기 제로</small></div></div>
-            <div class="col-md-4"><div class="p-4 border border-secondary"><b>04 부진 점포 리바이벌</b><br><small class="opacity-50">메출 반등을 위한 메뉴 전면 개편</small></div></div>
-            <div class="col-md-4"><div class="p-4 border border-secondary"><b>05 HACCP 스마트 제조</b><br><small class="opacity-50">초위생 스마트 팩토리 기반 생산</small></div></div>
-            <div class="col-md-4"><div class="p-4 border border-secondary"><b>06 숍인숍 인큐베이팅</b><br><small class="opacity-50">배달 전문 브랜드 즉시 매칭</small></div></div>
-            <div class="col-12"><div class="p-4 border border-gold text-center text-gold"><b>07 정부지원 마케팅 연계</b><br><small>희망리턴패키지 등 공공 지원 사업 최적화 컨설팅</small></div></div>
+        <div class="row reveal">
+            <div class="col-md-6">
+                <div class="s-card-premium text-center">
+                    <h2>OEM</h2>
+                    <p>레시피 → 대량생산</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="s-card-premium text-center">
+                    <h2>ODM</h2>
+                    <p>기획 → 브랜드 → 생산</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
+
+<!-- 🔥 08. 솔루션 유지 -->
+<section id="cat7" class="s-section bg-dark text-white">
+    <div class="container text-center">
+        <h2 class="display-section text-white">Business System</h2>
+        <p class="opacity-50">매출을 만드는 구조 설계</p>
+    </div>
+</section>
+
+
+<!-- 🔥 09. 인프라 -->
 <section id="cat8" class="s-section">
     <div class="container">
-        <div class="row align-items-center reveal">
-            <div class="col-lg-5">
-                <span class="category-num">08</span>
-                <h2 class="display-section">인텔리전스 인프라</h2>
-                <p class="text-muted">안정적 공급을 뒷받침하는 기술적 근거</p>
-            </div>
-            <div class="col-lg-7">
-                <div class="row g-3">
-                    <div class="col-6"><div class="s-card-premium p-4"><h5>HACCP</h5><p class="small mb-0">전 공정 위해요소 차단</p></div></div>
-                    <div class="col-6"><div class="s-card-premium p-4"><h5>Smart Logistics</h5><p class="small mb-0">전국 콜드체인망 구축</p></div></div>
-                    <div class="col-6"><div class="s-card-premium p-4"><h5>R&D Lab</h5><p class="small mb-0">명장 직속 연구소 운영</p></div></div>
-                    <div class="col-6"><div class="s-card-premium p-4"><h5>AI Prediction</h5><p class="small mb-0">원가 분석 자동화 시스템</p></div></div>
-                </div>
-            </div>
+        <div class="row reveal text-center">
+            <div class="col-md-3"><div class="s-card-premium">HACCP</div></div>
+            <div class="col-md-3"><div class="s-card-premium">물류</div></div>
+            <div class="col-md-3"><div class="s-card-premium">R&D</div></div>
+            <div class="col-md-3"><div class="s-card-premium">AI</div></div>
         </div>
     </div>
 </section>
-
-<footer class="s-section pb-5 bg-white">
-    <div class="container">
-        <div class="row pt-5">
-            <div class="col-md-6">
-                <h3 class="fw-black mb-4">MASTER'S RECIPE</h3>
-                <p class="text-muted small mb-1">대표이사 : 옥치민 | 경기도 하남시 미사강변로 (HACCP 센터)</p>
-                <p class="text-muted small">문의 : 02-1234-5678 | master@mjrecipe.co.kr</p>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <p class="small fw-bold opacity-50">© 2026 Master's Recipe Intelligence System. All rights reserved.</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('active');
-        });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
