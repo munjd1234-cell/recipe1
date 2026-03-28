@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MASTER SYSTEM | 한식명장 옥치민</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+/* 기본 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin:0;
+    background:#000;
+    color:#fff;
+    word-break: keep-all;
+}
+
+/* 타이포 */
+.hero-title {
+    font-size: clamp(2.2rem, 6vw, 4.8rem);
+    font-weight:900;
+    line-height:1.1;
+    letter-spacing:-1px;
+}
+
+.section-title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight:700;
+    margin-bottom:30px;
+}
+
+/* 🔥 HERO 전용 */
+.hero-title-main {
+    font-size: clamp(2.2rem, 6vw, 4.8rem);
+}
+
+.hero-title-sub {
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+}
+
+/* 레이아웃 */
+.section {
+    padding:120px 0;
+    border-bottom:1px solid #222;
+}
+
+@media (max-width:768px){
+    .section {padding:70px 20px;}
+}
+
+/* 🔥 모바일 최적화 */
+@media (max-width:768px){
+
+    .hero-title-main {
+        font-size: 1.6rem;
+        letter-spacing:-0.5px;
+    }
+
+    .hero-title-sub {
+        font-size: 1.3rem;
+    }
+
+    p {font-size:0.95rem;}
+    ul li {font-size:0.9rem;}
+}
+
+/* 컬러 */
+.gold {color:#c9a23f;}
+.small {opacity:0.6;}
+
+/* 카드 */
+.card-box {
+    background:#111;
+    padding:30px;
+    border-radius:20px;
+    height:100%;
+    transition:0.4s;
+}
+
+.card-box:hover {
+    transform: translateY(-8px);
+    background:#1a1a1a;
+}
+
+/* 애니메이션 */
+.reveal {
+    opacity:0;
+    transform:translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="section text-center">
+<div class="container reveal">
+
+<h1 class="hero-title hero-title-main">
+명장의 레시피<br>
+<span class="gold hero-title-sub">FOOD INTELLIGENCE SYSTEM</span>
+</h1>
+
+<p class="mt-4">
+25년 외식 데이터<br>
+10,000 레시피 · 500 매장 경험<br><br>
+<b>매출 구조를 만드는 시스템</b>
+</p>
+
+</div>
+</section>
+
+
+<!-- 명장 -->
+<section class="section">
+<div class="container reveal">
+
+<h2 class="section-title">한식명장 옥치민</h2>
+
+<div class="row g-4">
+
+<div class="col-lg-6">
+<p>
+외식업 25년 실전 경험.<br>
+프랜차이즈·급식·제조를 모두 경험한<br>
+<b>식품 비즈니스 설계 전문가</b>.
+</p>
+
+<ul>
+<li>✔ 레시피 10,000+</li>
+<li>✔ 매장 컨설팅 500+</li>
+<li>✔ OEM·ODM 진행</li>
+<li>✔ HACCP 시스템 구축</li>
+</ul>
+</div>
+
+<div class="col-lg-6">
+<div class="card-box">
+<b>핵심 철학</b><br><br>
+“맛이 아니라 구조가 매출을 만든다.”<br><br>
+전처리 → 밀키트 → OEM → 유통까지<br>
+<b>완전 자동화 시스템</b>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- 사업 구조 -->
+<section class="section">
+<div class="container reveal">
+
+<h2 class="section-title">Business Structure</h2>
+
+<div class="row g-4">
+
+<div class="col-6 col-md-3">
+<div class="card-box">전처리<br><span class="small">야채·수산·육류</span></div>
+</div>
+
+<div class="col-6 col-md-3">
+<div class="card-box">밀키트<br><span class="small">한식·양식</span></div>
+</div>
+
+<div class="col-6 col-md-3">
+<div class="card-box">OEM·ODM<br><span class="small">브랜드 생산</span></div>
+</div>
+
+<div class="col-6 col-md-3">
+<div class="card-box">유통<br><span class="small">온·오프라인</span></div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- 상품 -->
+<section class="section">
+<div class="container reveal">
+
+<h2 class="section-title">Product System</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="card-box">
+<b>전처리 200+</b><br>
+야채·과일·수산·육류<br>
+세척 / 절단 / 소분
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card-box">
+<b>밀키트 300+</b><br>
+찌개 / 전골 / 볶음 / 덮밥<br>
+1인~대용량
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card-box">
+<b>반찬·HMR 200+</b><br>
+김치 / 국 / 도시락<br>
+냉장·냉동
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- OEM -->
+<section class="section">
+<div class="container reveal">
+
+<h2 class="section-title">OEM · ODM</h2>
+
+<div class="row g-4">
+
+<div class="col-6 col-md-4"><div class="card-box">편의점 PB</div></div>
+<div class="col-6 col-md-4"><div class="card-box">홈쇼핑</div></div>
+<div class="col-6 col-md-4"><div class="card-box">프랜차이즈</div></div>
+
+<div class="col-6 col-md-4"><div class="card-box">급식</div></div>
+<div class="col-6 col-md-4"><div class="card-box">SNS 브랜드</div></div>
+<div class="col-6 col-md-4"><div class="card-box">펫푸드</div></div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- 유통 -->
+<section class="section">
+<div class="container reveal text-center">
+
+<h2 class="section-title">Distribution</h2>
+
+<p>
+쿠팡 · 마켓컬리 · 편의점 · 급식 · 홈쇼핑<br>
+→ 전 채널 공급 시스템
+</p>
+
+</div>
+</section>
+
+
+<!-- 마무리 -->
+<section class="section text-center">
+<div class="container reveal">
+
+<h2 class="hero-title hero-title-main">
+Beyond Food<br>
+<span class="gold hero-title-sub">Become System</span>
+</h2>
+
+<p class="mt-4">
+식재료가 아니라<br>
+<b>매출을 공급합니다</b>
+</p>
+
+</div>
+</section>
+
+
+<script>
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('active');
+        }
+    });
+},{threshold:0.1});
+
+document.querySelectorAll('.reveal').forEach(el=>{
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
