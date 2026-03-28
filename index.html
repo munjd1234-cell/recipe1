@@ -18,7 +18,7 @@ body {
     word-break: keep-all;
 }
 
-/* 타이포 (삼성 느낌 핵심) */
+/* 타이포 */
 .hero-title {
     font-size: clamp(2.2rem, 6vw, 4.8rem);
     font-weight:900;
@@ -32,6 +32,15 @@ body {
     margin-bottom:30px;
 }
 
+/* HERO 전용 */
+.hero-title-main {
+    font-size: clamp(2.2rem, 6vw, 4.8rem);
+}
+
+.hero-title-sub {
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+}
+
 /* 레이아웃 */
 .section {
     padding:120px 0;
@@ -40,6 +49,22 @@ body {
 
 @media (max-width:768px){
     .section {padding:70px 20px;}
+}
+
+/* 모바일 */
+@media (max-width:768px){
+
+    .hero-title-main {
+        font-size: 1.6rem;
+        letter-spacing:-0.5px;
+    }
+
+    .hero-title-sub {
+        font-size: 1.3rem;
+    }
+
+    p {font-size:0.95rem;}
+    ul li {font-size:0.9rem;}
 }
 
 /* 컬러 */
@@ -81,9 +106,9 @@ body {
 <section class="section text-center">
 <div class="container reveal">
 
-<h1 class="hero-title">
+<h1 class="hero-title hero-title-main">
 명장의 레시피<br>
-<span class="gold">FOOD INTELLIGENCE SYSTEM</span>
+<span class="gold hero-title-sub">FOOD INTELLIGENCE SYSTEM</span>
 </h1>
 
 <p class="mt-4">
@@ -201,11 +226,11 @@ body {
 </section>
 
 
-<!-- OEM -->
+<!-- OEM + 신규 카테고리 -->
 <section class="section">
 <div class="container reveal">
 
-<h2 class="section-title">OEM · ODM</h2>
+<h2 class="section-title">OEM · ODM & Consulting</h2>
 
 <div class="row g-4">
 
@@ -216,6 +241,21 @@ body {
 <div class="col-6 col-md-4"><div class="card-box">급식</div></div>
 <div class="col-6 col-md-4"><div class="card-box">SNS 브랜드</div></div>
 <div class="col-6 col-md-4"><div class="card-box">펫푸드</div></div>
+
+<!-- 🔥 추가된 핵심 -->
+<div class="col-6 col-md-6">
+<div class="card-box">
+<b>제품 레시피 개발</b><br>
+<span class="small">메뉴 기획 · 레시피 설계 · 상품화</span>
+</div>
+</div>
+
+<div class="col-6 col-md-6">
+<div class="card-box">
+<b>식당 창업 컨설팅</b><br>
+<span class="small">상권 분석 · 메뉴 구성 · 수익 구조 설계</span>
+</div>
+</div>
 
 </div>
 
@@ -242,9 +282,9 @@ body {
 <section class="section text-center">
 <div class="container reveal">
 
-<h2 class="hero-title">
+<h2 class="hero-title hero-title-main">
 Beyond Food<br>
-<span class="gold">Become System</span>
+<span class="gold hero-title-sub">Become System</span>
 </h2>
 
 <p class="mt-4">
